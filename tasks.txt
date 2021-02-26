@@ -2,15 +2,15 @@
 [stylesheets with global variables]
 
 Deekshant
-firebase + models
-dynamic page (template + system + model)
-header + footer(details + map) + landing ending quote
-landing about + msgs (cards + modals)
 notice page + info Page(JAN 2020 + Latest open)
+header + footer(details + map) + landing ending quote
+dynamic page (template + system + model)
+landing about + msgs (cards + modals)
+firebase + models
 
 Nitesh
-loader + starting modal(imgae + text + admin control)
-admission page + admin control
 Student Activities page
-landing notice + info (carr...)
+admission page + admin control(opens only for admin)
 landing base(with animations, carousel, info + on bho)
+landing notice + info (carr...)
+loader + starting modal(imgae + text + admin control(opens only for admin))

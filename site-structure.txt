@@ -1,0 +1,27 @@
+** Landing
+School name
+details
+om bho bhuva swaha
+carousel
+news
+notice
+admisions button (boolean in admin)
+Abot Us(modal)
+3 msgs (modal)
+
+** Firebase
+news
+notice
+
+
+** Pages
+Admission
+notice
+news
+landing
+Student Activities (3 in 1 page)
+
+** Dynamic
+Smart Class
+library
+computer lab

@@ -1,0 +1,30 @@
+:root {
+/* colours */
+    --Chartreuse: #dad870; /* Chartreuse */
+    --Mimosa: #ffcd58; /* Mimosa */
+    --Orange: #ff9636; /* orange */
+    --RedOrange: #ff5c4d; /* red orange */
+
+    --Highlight: #dad870; /* Chartreuse */
+    --Background : #ffcd58; /* Mimosa */
+
+    --Buttons : #ff9636; /* orange */
+    --ButtonFocus: #ff5c4d; /* red orange */
+
+    --Anchors: #ff9636; /* orange */
+    --AnchorFocus: #ff5c4d; /* red orange */
+
+/* fonts */
+    --Heading: Montserrat;
+    --Subheading: RobotoMono;
+    --Para: MerriWeather;
+    --SubPara: Hind;
+    --Errors:RobotoMono;
+
+/* font Size  */
+    --Heading: 4.38rem;
+    --SubHeading: 2rem;
+    --ParaHeading: 1.37rem;
+    --Para: 1rem;
+    --Errors:0.5rem;
+}

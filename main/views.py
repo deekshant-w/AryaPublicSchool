@@ -10,3 +10,9 @@ def dkTemp(request):
 def dynamicPage(request, p):
 	print(p)
 	return render(request, 'dynamicPage.html')
+
+def notice(request):
+	return render(request, 'notice.html')
+
+def information(request):
+	return render(request, 'information.html')

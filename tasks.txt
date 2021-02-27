@@ -5,7 +5,7 @@ Deekshant
 notice page + info Page(JAN 2020 + Latest open)
 ~ header + footer(details + map) + landing ending quote
 dynamic page (template + system + model)
-landing about + msgs (cards + modals)
+~ landing about + msgs (cards + modals)
 ~ firebase + models
 
 Nitesh

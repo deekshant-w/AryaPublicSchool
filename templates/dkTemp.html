@@ -308,13 +308,7 @@
 
     <!-- People modals -->
     <!-- Modal 1 -->
-    <div
-      class="modal fade"
-      id="modal1"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true" >
       <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
@@ -421,6 +415,7 @@
   </body>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
   <script type="text/javascript" src="{% static 'js/vanilla-tilt.min.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
   <script>
     // footer js
     let thisYear = new Date();
@@ -435,11 +430,15 @@
       gyroscope: true,
     });
 
+    // Modal 1
     document.querySelector("#personCard1").addEventListener('mouseenter',(e)=>{
       document.querySelector("#cardShadowAnchor1").classList.add("shadow-2-strong");
     });
     document.querySelector("#personCard1").addEventListener('mouseleave',(e)=>{
       document.querySelector("#cardShadowAnchor1").classList.remove("shadow-2-strong");
+    });
+    document.querySelector("#personCard1").addEventListener('click',(e)=>{
+      $("#modal1").modal('show');
     });
   </script>
 </html>

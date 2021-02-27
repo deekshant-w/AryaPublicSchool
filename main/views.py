@@ -6,3 +6,7 @@ def landing(request):
 
 def dkTemp(request):
     return render(request, 'dkTemp.html')
+
+def dynamicPage(request, p):
+	print(p)
+	return render(request, 'dynamicPage.html')

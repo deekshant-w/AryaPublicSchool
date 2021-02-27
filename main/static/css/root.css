@@ -5,26 +5,58 @@
     --Orange: #ff9636; /* orange */
     --RedOrange: #ff5c4d; /* red orange */
 
-    --Highlight: #dad870; /* Chartreuse */
-    --Background : #ffcd58; /* Mimosa */
+    --ColorHighlight: #dad870; /* Chartreuse */
+    --ColorBackground : #ffcd58; /* Mimosa */
 
-    --Buttons : #ff9636; /* orange */
-    --ButtonFocus: #ff5c4d; /* red orange */
+    --ColorButtons : #ff9636; /* orange */
+    --ColorButtonFocus: #ff5c4d; /* red orange */
 
-    --Anchors: #ff9636; /* orange */
-    --AnchorFocus: #ff5c4d; /* red orange */
+    --ColorAnchors: #ff9636; /* orange */
+    --ColorAnchorFocus: #ff5c4d; /* red orange */
 
 /* fonts */
-    --Heading: Montserrat;
-    --Subheading: RobotoMono;
-    --Para: MerriWeather;
-    --SubPara: Hind;
-    --Errors:RobotoMono;
+    --FontHeading: MerriWeather;
+    --FontSubheading: RobotoMono;
+    --FontParaHeading: Hind;
+    --FontPara: Montserrat;
+    --FontErrors:RobotoMono;
 
 /* font Size  */
-    --Heading: 4.38rem;
-    --SubHeading: 2rem;
-    --ParaHeading: 1.37rem;
-    --Para: 1rem;
-    --Errors:0.5rem;
+    --SizeHeading: 4.38rem;
+    --SizeSubHeading: 2rem;
+    --SizeParaHeading: 1.37rem;
+    --SizePara: 1rem;
+    --SizeErrors:0.5rem;
+}
+
+/* zero level adjustments */
+body{
+  font-size: var(--SizePara);
+  font-family: var(--FontPara);
+}
+
+.heading{
+  font-size: var(--SizeHeading);
+  font-family: var(--FontHeading);
+}
+.subHeading{
+  font-size: var(--SizeSubHeading);
+  font-family: var(--FontSubHeading);
+}
+.para{
+  font-size: var(--SizePara);
+  font-family: var(--FontPara);
+}
+.paraHeading{
+  font-size: var(--SizeParaHeading);
+  font-family: var(--FontParaHeading);
+}
+.error{
+  font-size: var(--SizeErrors);
+  font-family: var(--FontErrors);
+}
+
+/* reusable classes */
+.textCenter{
+  text-align: center;
 }

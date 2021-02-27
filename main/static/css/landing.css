@@ -1,0 +1,40 @@
+/* preventoverflow */
+.row{
+  --bs-gutter-x:0;
+}
+
+/* part1 */
+.schoolParent{
+  padding-bottom: 2rem;
+  background-color: var(--Mimosa);
+}
+
+.schoolName{
+  text-align: center;
+  margin-top: 2rem;
+}
+.schoolAddress{
+  text-align: center;
+}
+.gayatri{
+  margin-top: 2rem;
+  background-color: var(--Chartreuse);
+  color: var(--RedOrange);
+}
+
+/* part2 */
+
+.carouselParent{
+  padding-top: 2rem;
+  background-color: var(--Mimosa);
+  display: flex;
+  justify-content: center;
+}
+
+.carouselWrapper{
+  width: 70%;
+}
+.carousel-item > img {
+  max-height: 88rem !important;
+}
+/* part3 */

@@ -5,6 +5,9 @@ body{
 
 .mainBox{
   text-align: center;
+  margin-top: 5vh;
+  margin-bottom: 15vh; 
+  padding-bottom: 15vh;
 }
 
 .pageImg{
@@ -19,12 +22,23 @@ body{
 
 @media(max-width: 992px){
   .pageImg{
-      width: 75%;
-      padding: 0px;
-      margin: 0px;
+    width: 75%;
+    padding: 0px;
+    margin: 0px;
   }
   .imgColumn{
   padding-left: 0px;
+  }
+  .mainBox{
+    margin-top: 2vh;
+    /*padding-bottom: 0px;*/
+  }
+  /*.dataColumn{
+    margin-bottom: 50vh;
+  }*/
+  #letterData{
+    height: 85vh;
+    max-height: 85vh;
   }
 }
 
@@ -68,7 +82,7 @@ body{
 }
 
 #letterData{
-  height: 95vh; 
+  height: 90vh; 
   overflow-y: scroll;
   text-align: justify;
 }

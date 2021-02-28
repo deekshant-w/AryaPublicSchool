@@ -10,8 +10,12 @@ def dkTemp(request):
     return render(request, 'dkTemp.html')
 
 def dynamicPage(request, p):
-	print(p)
-	return render(request, 'dynamicPage.html')
+	p = p.lower().strip()
+	page = M.newPage.objects.filter(archieve=False, url__in = [p,f'/{p}',f'{p}/',f'/{p}/'])
+	if(page):
+		return render(request, 'dynamicPage.html', {'page':page[0]})
+	else:
+		return HttpResponse("404 Page Not Found")
 
 def notice(request):
 	notices = M.notice.objects.filter(archieve=False).order_by('-displayDate')

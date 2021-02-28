@@ -9,7 +9,7 @@ rel="stylesheet"
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img
         src="{% static 'images/apsLogo.jpg' %}"
         loading="lazy"
@@ -35,14 +35,14 @@ rel="stylesheet"
       <!-- Left links -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Admission</a>
+          <a class="nav-link active" href="/admissions">Admission</a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle active"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -52,20 +52,18 @@ rel="stylesheet"
             School
           </a>
           <!-- Dropdown menu -->
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Smart Class</a></li>
-            <li><a class="dropdown-item" href="#">Library</a></li>
-            <li><a class="dropdown-item" href="#">Computer Lab</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="attatchHere">
+            <!-- <li><a class="dropdown-item" href="#">Smart Class</a></li> -->
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Activities</a>
+          <a class="nav-link active" href="/activities">Activities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Notices</a>
+          <a class="nav-link active" href="/notice">Notices</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">News</a>
+          <a class="nav-link active" href="/news">News</a>
         </li>
       </ul>
       <!-- Left links -->

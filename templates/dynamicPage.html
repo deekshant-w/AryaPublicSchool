@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{}</title>
+  <title>Arya Public School</title>
 
   <!-- Font Awesome -->
   <link
@@ -27,30 +27,63 @@
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
   ></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 </head>
 <link rel="stylesheet" type="text/css" href="{% static 'css/dynamicPage.css' %}" />
 <body>
   <div class="container-xl mainBox">
     <div class="row">
-      <div class="col-lg imgColumn">
-        <br><br>
-        <h1 class="pageHeading">Karate</h1>
-        <img class='pageImg shadow-2-strong ' src="{% static 'images/karate.jpg' %}">
+      <div class="col-lg imgColumn" id='hght'>
+        <div class="pageHeading"><h1 class="display-3 shadow-2-strong"><b>{{ page.heading|title }}</b></h1></div> 
+        <img class='pageImg shadow-5-strong img-thumbnail' src="{{ page.image.url }}">
       </div>
       <div class="col-lg dataColumn">
-        <div class="letter">
-          <div id='letterData'>
-            <p>Dear Friends,</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod porta tempor. Donec pulvinar turpis nec velit pellentesque quis rhoncus sapien facilisis. Mauris quis massa dui, rhoncus viverra quam. Nulla tempus, augue ut consectetur facilisis, arcu elit pellentesque arcu, sed rutrum orci turpis pulvinar augue. Donec eget arcu mauris. Vestibulum tristique consequat lacus eget laoreet. Integer sed nisl sed nibh pulvinar ornare quis nec quam. Aenean rhoncus ligula ut lectus placerat a commodo quam vulputate. In eu metus turpis.</p>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus facilisis erat in nibh auctor at aliquet velit vestibulum. Curabitur turpis diam, malesuada eu consequat eget, ultricies sed nunc. Aenean sed odio massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare vulputate congue. Quisque leo metus, condimentum nec molestie et, egestas luctus libero.</p>
-            <p>Mauris porta odio augue. Nam turpis dui, volutpat id feugiat vitae, sagittis a justo. Nam iaculis aliquet erat non varius. Suspendisse justo arcu, tincidunt sed auctor sit amet, fermentum id turpis. Suspendisse sed enim quis lorem vestibulum fermentum a ut nulla.</p>
-            <p>Nullam tincidunt elit quis nibh blandit interdum. Duis ullamcorper pellentesque pretium. Nulla facilisi. Morbi semper nisi et justo varius non fermentum metus ornare. Proin vehicula, mi vel volutpat accumsan, libero lacus euismod massa, id feugiat velit enim nec ligula. Aliquam ipsum est, volutpat aliquam tincidunt id, sagittis et velit. Nunc vitae massa vel dui facilisis consectetur vel id sem.</p>
-
-            <p>Aenean pulvinar, lacus ultrices euismod viverra, nulla diam interdum ligula, id mollis mi erat quis lectus. Morbi quis felis ut turpis condimentum dictum porttitor id mauris. Nam non tincidunt mauris. Donec viverra eleifend pharetra. Nulla eu ipsum et elit consectetur rutrum. Integer lorem purus, ultricies ac laoreet quis, feugiat vel dolor. Donec eu turpis neque. Nullam molestie sapien eu nibh semper sed convallis est pretium.</p>
-          </div>
+        <div class="letter" id='letter'>
+          <div id='letterData'>{{ page.details|safe }}</div>
         </div><br><br><br>
       </div>
     </div>
   </div>
 </body>
+{% if page.vertical %}
+<style>
+  h1{
+    margin-bottom: 5vh;
+  }
+  .letter{
+    margin-top: -7.5vh;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  .letterData{
+    height: 100vh;
+  }
+</style>
+{% endif %}
+<style>
+  @media(max-width: 992px){
+    .imgColumn{
+      padding: 0px;
+    }
+    h1.display-3{
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .pageImg{
+      width: 80%;
+    }
+
+    .letter{
+      margin: 26px auto 0;
+      margin-top: 10vh;
+    }
+    {% if page.vertical %}
+    .pageImg{
+      width: auto;
+      max-height: 75vh;
+    }
+    {% endif %}
+  }
+</style>
 </html>

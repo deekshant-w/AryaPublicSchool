@@ -31,7 +31,8 @@ def notice(request):
 
 def news(request):
 	news = M.news.objects.filter(archieve=False).order_by('-displayDate')
-	return render(request, 'news.html', {'news':news})
+	print(news)
+	return render(request, 'news.html', {'information':news})
 
 def activitiesPage(request):
 	return render(request, 'activitiesPage.html')

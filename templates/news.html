@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Information</title>
+    <title>Latest News</title>
       <!-- Font Awesome -->
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -64,7 +65,7 @@
             aria-expanded="false"
             aria-controls="collapse{{ forloop.counter }}"
           >
-            <b>{{ info.heading }}</b>
+            {% if info.important is True %}<img src="{% static 'images/new.gif' %}">&nbsp;&nbsp;{% endif %} <b>{{ info.heading }}</b>
           </button>
         </h2>
         <div

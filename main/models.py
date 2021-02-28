@@ -18,7 +18,8 @@ class news(models.Model):
 		super().save(*args, **kwargs)
 
 	def __str__(self):
-		return self.heading
+		arch = " [Archieved]" if self.archieve else ""
+		return self.heading + arch
 
 class notice(models.Model):
 	heading = models.TextField()
@@ -35,7 +36,8 @@ class notice(models.Model):
 		super().save(*args, **kwargs)
 
 	def __str__(self):
-		return self.heading
+		arch = " [Archieved]" if self.archieve else ""
+		return self.heading + arch
 
 class newPage(models.Model):
 	url = models.CharField(max_length=1024, help_text="aryaSamaj.com/{YOUR INPUT}/")
@@ -59,7 +61,8 @@ class newPage(models.Model):
 		super().save(*args, **kwargs)
 
 	def __str__(self):
-		return self.heading
+		arch = " [Archieved]" if self.archieve else ""
+		return self.heading + arch
 
 
 class loadingModal(models.Model):

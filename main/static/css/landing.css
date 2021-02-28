@@ -50,6 +50,104 @@
   justify-content: center;
 }
 
+/* part4 */
+
+  /*about css*/
+  .aboutSection{
+    padding: 5vmin 10vmin;
+  }
+  .aboutHead{
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  .aboutBody{
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  /*a word css part5 */
+  .wordSection{
+    text-align: center;
+  }
+  .testimonial-card .card-up {
+    height: 120px;
+    overflow: hidden;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+  }
+
+  .aqua-gradient {
+    background: linear-gradient(to left bottom, #ffce00, #ffbb00, #ffa700, #ff9300, #ff7e00); !important;
+    /*background: linear-gradient(40deg, #f5ff20, #ff4605) !important;*/
+  }
+
+  .testimonial-card .avatar {
+    width: 60%;
+    margin-top: -30%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    border-radius: 50%;
+  }
+
+  .continueReading{
+    padding-top: 1.5rem;
+    text-align: left;
+    font-size: 0.8rem;
+    color: #979797;
+  }
+  .continueReading:after{
+    content: "...";
+  }
+
+  .cardSmallData{
+    text-align: justify;
+  }
+
+  .cardModalBody{
+    text-align: center;
+  }
+
+  .modalLeftImg{
+    width: 90%;
+    border-radius: 1%;
+    position: sticky;
+    top: 0;
+  }
+
+  .modalImageDivCol{
+    padding-left: 0px;
+    padding-right: 1%;
+  }
+
+  .modalDataText{
+    padding-left: 5%;
+    text-align: justify;
+    font-size: 1rem;
+    color: black;
+  }
+
+  .modalTextPersonName{
+    line-height: 2rem;
+    text-decoration: underline;
+  }
+
+  .personWordCard{
+    cursor: pointer;
+  }
+
+  @media(max-width: 992px){
+    .modalLeftImg{
+      width: 60%;
+      border-radius: 1%;
+      margin-bottom: 5%;
+    }
+  }
+  .lead {
+    font-size: 2.8vmin;
+  }
+
+
 /* spacing */
 .noticeNewsParents{
   padding-top: 4rem;

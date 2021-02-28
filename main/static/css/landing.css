@@ -13,28 +13,23 @@
 /* part1 */
 .schoolParent{
   padding-bottom: 2rem;
-  /* background-color: var(--Mimosa); */
 }
 
 .schoolName{
   text-align: center;
-  margin-top: 2rem;
 }
 .schoolAddress{
   text-align: center;
 }
 .gayatri{
-  margin-top: 2rem;
-  /* background-color: var(--Chartreuse); */
+  margin-top: 1.5vmin;
   color: var(--RedOrange);
 }
 
 /* part2 */
 
 .carouselParent{
-  padding-top: 2rem;
   padding-bottom: 4rem;
-  /* background-color: var(--Mimosa); */
   display: flex;
   justify-content: center;
 }
@@ -83,4 +78,43 @@
 }
 .noticeNewsParents > .card > .card-body::-webkit-scrollbar {
   display: none;
+}
+
+
+
+
+
+/*new changes*/
+
+.schoolHeading{
+  font-size: 8vmin;
+  text-shadow: 0px 0px 4px #000000;
+  /*line-height: 0.7;*/
+}
+
+.scAddress{
+  font-size: 3.2vmin;
+  text-align: center;
+  text-shadow: 0px 0px 4px #0000008f;
+}
+
+.schoolContact{
+  font-size: 2.5vmin;
+  text-shadow: 0px 0px 4px #0000008f;
+}
+
+.subHeading{
+  font-size: 4vmin;
+}
+
+@media(max-width: 650px){
+  .schoolAddress{
+    margin-top: -2vh;
+  }
+  .textCenter{
+    margin-top: -1.2vh;
+  }
+  .carouselWrapper {
+    width: 90%;
+}
 }

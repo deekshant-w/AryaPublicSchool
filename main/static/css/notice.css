@@ -1,0 +1,33 @@
+body{
+  background: whitesmoke;
+}
+h1{
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 5px #c5c5c5;
+  background: white;
+  padding: 1.5% 0px;
+}
+.container > .table{
+  text-align: center;
+  background: white;
+  vertical-align: middle;
+  margin-bottom: 15vh;
+}
+#headings{
+  border-bottom: 1px solid black;
+}
+td.min {
+  width: 1% !important;
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
+}
+td.max{
+  width: 60%;
+  word-break: break-all;
+  /*text-align: justify;*/
+}
+tbody > tr >th{
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
+}

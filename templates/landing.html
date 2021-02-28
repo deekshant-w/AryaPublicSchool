@@ -19,7 +19,7 @@ rel="stylesheet"
       <div class="col-sm-12 schoolParent">
         <div class="row">
           <div class="col-sm-12">
-            <div class="heading schoolName"><h class='schoolHeading'>ARYA PUBLIC SCHOOL</h></div>
+            <div class="heading schoolName"><div id='schoolName'><h class='schoolHeading'>ARYA PUBLIC SCHOOL</h></div></div>
           </div>
           <div class="col-sm-12">
             <div class="subHeading schoolAddress"><p class='scAddress'>MAHARISHI&nbsp;DAYANAND&nbsp;MARG, MALVIYA&nbsp;NAGAR, NEW&nbsp;DELHI&nbsp;-&nbsp;110017</p></div>
@@ -27,6 +27,9 @@ rel="stylesheet"
           <div class="col-sm-12 textCenter"><p class='schoolContact'>011 - 41617157 | arya.public@yahoo.com</p></div>
           <div class="col-sm-12 gayatri">
             <marquee class="subHeading" behavior="scroll" direction="left">ओ३म्भूर्भुव: स्व: | तत्सवितुर्वरेण्यंभर्गोदेवस्यधीमहि | धियोयोन: प्रचोदयात् ||</marquee>
+            {% if admissionsOn == 1 %}
+            <marquee class="subHeading" behavior="scroll" direction="left"><a href="{{ data.redirectUrl }}" id='admissions'>{{ data.homePageText|safe }}</a></marquee>
+            {% endif %}
           </div>
         </div>
 

@@ -78,7 +78,7 @@ body{
 }
 
 .contentWrapper{
-  padding-top: calc(6vh + 2em);
+  padding-top: 3em;
 }
 
 .heading{
@@ -105,4 +105,9 @@ body{
 /* reusable classes */
 .textCenter{
   text-align: center;
+}
+
+.navbar{
+  box-shadow: 0 1vh 10px 0 rgb(0 0 0 / 20%);
+  padding-top: 1vmin;
 }

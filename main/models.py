@@ -71,6 +71,8 @@ class loadingModal(models.Model):
 
 class AdminControls(models.Model):
 	admissionsOn = models.BooleanField(default=True)
+	homePageText = models.TextField()
+	redirectUrl = models.TextField()
 	def __str__(self):
-		return "ON" if self.heading else "OFF"
+		return "Admin Controls"
 

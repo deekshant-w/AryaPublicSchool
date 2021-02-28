@@ -9,4 +9,5 @@ urlpatterns = [
     path('news',mv.information),
     path('admissions',mv.admissionPage),
     path('activities',mv.activitiesPage),
+    path('pagesEndPoint',mv.pagesEndPoint)
 ]

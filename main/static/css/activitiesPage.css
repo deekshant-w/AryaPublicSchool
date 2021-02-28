@@ -1,0 +1,45 @@
+
+/* parent */
+.activitiesParent{
+  padding: 3rem;
+}
+.activitiesWrapper{
+  padding: 3rem;
+  border: var(--Orange) solid;
+}
+
+/* all three */
+.imageParent{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.imageParent > div > img{
+  width: 34rem;
+}
+hr{
+  color: var(--Orange);
+  opacity: 1;
+}
+.imageWrapper{
+  overflow: hidden;
+}
+
+
+.headingWrapper{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.textColumn{
+  display: flex
+}
+.textParent{
+  margin: auto;
+}
+
+/* activity1 */
+
+/* activity2 */
+
+/* activity3 */

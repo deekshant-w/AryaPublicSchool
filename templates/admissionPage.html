@@ -1,0 +1,95 @@
+{% extends "Base.html" %}
+
+{% block title %} admissionPage {% endblock title %}
+
+{% block content %}
+{% load static %}
+
+<!-- custom css imports -->
+<link
+href="{% static 'css/admissionPage.css' %}"
+rel="stylesheet"
+/>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row textParent">
+      <div class="col-sm-12 textWrapper">
+
+        <div class="row">
+          <div class="col-sm-12 headingWrapper">
+            <span class="heading">Admission Details</span>
+          </div>
+        </div>
+        <div class="row columnParent">
+          <div class="col-md-6 col-sm-12 documentsWrapper">
+            <div class="row allcenter">
+              <div class="col-sm-8">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="allcenter topicHeading ">
+                      <span class="subHeading card-title">Documents Required</span>
+                    </div>
+                    <div class="col-sm-12 allcenter card-text listWrapper">
+                      <ul>
+                        <li>Two Photographs</li>
+                        <li>Sibling Proof</li>
+                        <li>Date of birth Proof</li>
+                        <li>Proof of Residential proof</li>
+                        <li>Aadhar card /Voter ID Card</li>
+                        <li>Alumni Proof</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-md-6 col-sm-12">
+
+            <div class="row allcenter">
+              <div class="col-sm-8">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="allcenter topicHeading ">
+                      <span class="subHeading card-title">Admission Criteria</span>
+                    </div>
+                    <div class="col-sm-12 allcenter card-text listWrapper">
+                      <ul>
+                        <li>Distance  -  50</li>
+                        <li>Sibling  -  20</li>
+                        <li>Alumni  -  10</li>
+                        <li>Single Parent  -  10</li>
+                        <li>Girl Child  -  10</li>
+                        <li>Age for Nursery – 3 to 4 Years</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row allcenter">
+          <div class="col-sm-12">
+            <p>*Note : Registration Forms Available (cost Rs. 25/-) at
+            School Office from 18th February 2021 to 4th March 2021
+            Between 9:00 a.m. to 1:00 p.m.
+            </p>
+            <p>Total Seats : 70</p>
+            <p>General Seats : 52</p>
+            <p>EWS seats : 18 (Apply <a href="http://www.edudel.nic.in">Here</a>)</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}

@@ -16,3 +16,9 @@ def notice(request):
 
 def information(request):
 	return render(request, 'information.html')
+
+def activitiesPage(request):
+    return render(request, 'activitiesPage.html')
+
+def admissionPage(request):
+    return render(request, 'admissionPage.html')

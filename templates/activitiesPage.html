@@ -1,0 +1,125 @@
+{% extends "Base.html" %}
+
+{% block title %} activitesPage {% endblock title %}
+
+{% block content %}
+{% load static %}
+
+<!-- custom css imports -->
+<link
+href="{% static 'css/activitiesPage.css' %}"
+rel="stylesheet"
+/>
+
+<div class="row activitiesParent">
+  <div class="col-sm-12 activitiesWrapper">
+
+    <div class="row imageParent">
+      <div class="col-sm-5 imageWrapper">
+        <img src="{% static 'images/activity1.jpg' %}" alt="">
+      </div>
+      <div class="col-sm-7 textColumn">
+
+        <div class="row textParent">
+          <div class="col-sm-12 headingWrapper">
+            <span class="subHeading">
+                NURSERY ACTIVITIES
+            </span>
+          </div>
+          <div class="col-sm-12 paraWrapper">
+            <p>
+              Quality education in the early years of Preschool sets a firm foundation in the over-all
+               development of a child.
+            </p>
+            <p>
+              “Every child is gifted, they just unwrap their packages at different times.”
+            </p>
+            <p>
+              In our school, the nursery curriculum provides a right array of activities to help
+              children move towards achieving their early learning goals. Each child is unique and to
+               unearth that talent various activities are conducted by the vibrant, innovative teachers
+                of the Nursery section.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row imageParent">
+      <div class="col-sm-7 textColumn">
+
+        <div class="row textParent">
+          <div class="col-sm-12 headingWrapper">
+            <span class="subHeading">
+                INTER-HOUSE ACTIVITIES
+            </span>
+          </div>
+          <div class="col-sm-12 paraWrapper">
+            <p>
+              In Arya Public School, we not only focus on academic excellence but also
+              character & overall growth of the students.
+            </p>
+            <p>
+              The school is divided into four houses:
+              <ul>
+                <li>Dayanand
+                <li>Vivekanand
+                <li>Shradhanand
+                <li>Virjanand
+              </ul>
+            </p>
+            <p>
+              Regular interhouse competitions in recitation, drawing, painting debates etc. are held.
+              The idea is to inculcate a sense of healthy competition among students.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-5 imageWrapper">
+        <img src="{% static 'images/activity2.jpg' %}" alt="">
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row imageParent">
+      <div class="col-sm-5 imageWrapper">
+        <img src="{% static 'images/activity3.jpg' %}" alt="">
+      </div>
+      <div class="col-sm-7 textColumn">
+
+        <div class="row textParent">
+          <div class="col-sm-12 headingWrapper">
+            <span class="subHeading">
+              SPORTS ACTIVITY
+            </span>
+          </div>
+          <div class="col-sm-12 paraWrapper">
+            <p>
+              “A healthy mind and a healthy body go hand in hand.”
+            </p>
+            <p>
+              Sports encompass more than just the benefit of physical activity; it increases the
+              self-esteem and mental alertness of every participant, whatever be the sport one involves in.
+            </p>
+            <p>
+              The Widest possible range of sports activities in the school includes, taekwondo, kho-kho, badminton and athletics.
+              ARYA PUBLIC SCHOOL lays great emphasis on sports activities for the
+              complete development of the students’ personality.
+
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}

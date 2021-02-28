@@ -6,6 +6,7 @@ urlpatterns = [
     path('dkTemp',mv.dkTemp),
     path('dynamicPage',mv.dynamicPage),
     path('notice',mv.notice),
-    path('information',mv.information),
-    
-] + [path('<path:p>/',mv.dynamicPage),]
+    path('news',mv.information),
+    path('admissions',mv.admissionPage),
+    path('activities',mv.activitiesPage),
+]

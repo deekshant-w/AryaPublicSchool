@@ -41,9 +41,24 @@
   .table{
     text-align: center;
     background: white;
+    vertical-align: middle;
   }
   #headings{
     border-bottom: 1px solid black;
+  }
+  td.min {
+    width: 1% !important;
+    padding-left: 1vw !important;
+    padding-right: 1vw !important;
+  }
+  td.max{
+    width: 60%;
+    word-break: break-all;
+    /*text-align: justify;*/
+  }
+  tbody > tr >th{
+    padding-left: 1vw !important;
+    padding-right: 1vw !important;
   }
 </style>
 <body>
@@ -58,21 +73,13 @@
         </tr>
       </thead>
       <tbody>
+        {% for notice in notices %}
         <tr>
-          <th scope="row">12 JAN 2021</th>
-          <td><b>This is the first one</b></td>
-          <td><a href="#"><b>DOWNLOAD</b></a></td>
+          <th scope="row">{{ notice.displayDate }}</th>
+          <td class="max"><b>{{ notice.heading }}</b></td>
+          <td class="min"><a href="{{ notice.file.url }}"><b>DOWNLOAD</b></a></td>
         </tr>
-        <tr>
-          <th scope="row">12 JAN 2021</th>
-          <td><b>This is the first one</b></td>
-          <td><a href="#"><b>DOWNLOAD</b></a></td>
-        </tr>
-        <tr>
-          <th scope="row">12 JAN 2021</th>
-          <td><b>This is the first one</b></td>
-          <td><a href="#"><b>DOWNLOAD</b></a></td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>

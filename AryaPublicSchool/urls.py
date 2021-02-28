@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from main.views import dynamicPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls'))
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL)
+    path('', include('main.urls')),
+    path('tinymce/', include('tinymce.urls')),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL) + [path('<path:p>/',dynamicPage),]

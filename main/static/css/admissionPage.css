@@ -1,0 +1,37 @@
+/* parents */
+
+.textParent{
+  padding: 3rem;
+}
+.columnParent{
+  margin-bottom: 3rem;
+}
+
+.textWrapper{
+  padding: 3rem;
+  border: var(--Orange) solid;
+  line-height: 2.5rem;
+}
+
+.headingWrapper{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.documentsWrapper{
+  border-right: var(--Orange) solid;
+}
+.topicHeading{
+  margin-bottom: 3rem !important;
+}
+
+
+.allcenter{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.listWrapper{
+  font-size: larger;
+}

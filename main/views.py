@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from main import models as M
+from django.db.models import Q
 
 def landing(request):
     return render(request, 'landing.html')
@@ -12,7 +14,19 @@ def dynamicPage(request, p):
 	return render(request, 'dynamicPage.html')
 
 def notice(request):
-	return render(request, 'notice.html')
+	notices = M.notice.objects.filter(archieve=False).order_by('-displayDate')
+	return render(request, 'notice.html', {'notices':notices})
 
 def information(request):
+<<<<<<< HEAD
+	information = M.information.objects.filter(archieve=False).order_by('-displayDate')
+	return render(request, 'information.html', {'information':information})
+=======
 	return render(request, 'information.html')
+
+def activitiesPage(request):
+    return render(request, 'activitiesPage.html')
+
+def admissionPage(request):
+    return render(request, 'admissionPage.html')
+>>>>>>> f92e6bf3b41fea861c3cca2c33f6e22f3946dcac

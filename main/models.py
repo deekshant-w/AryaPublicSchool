@@ -1,9 +1,11 @@
 from django.db import models
 from django.utils import timezone
+from tinymce import models as tinymce_models
+from django.utils.html import mark_safe
 
 class information(models.Model):
-	heading = models.TextField()
-	details = models.TextField()
+	heading = models.CharField(max_length=1024)
+	details = tinymce_models.HTMLField()
 	dateCreated = models.DateTimeField(auto_now_add=True)
 	dateUpdated = models.DateTimeField(auto_now=True)
 	displayDate = models.DateTimeField(blank=True, help_text="Used to sort the all informations")
@@ -14,6 +16,9 @@ class information(models.Model):
 		if not self.displayDate:
 			self.displayDate = timezone.now()
 		super().save(*args, **kwargs)
+
+	def __str__(self):
+		return self.heading
 
 class notice(models.Model):
 	heading = models.TextField()
@@ -29,9 +34,12 @@ class notice(models.Model):
 			self.displayDate = timezone.now()
 		super().save(*args, **kwargs)
 
+	def __str__(self):
+		return self.heading
+
 class newPage(models.Model):
-	heading = models.TextField()
-	file = models.FileField(blank=True)
+	heading = models.CharField(max_length=1024)
+	details = tinymce_models.HTMLField()
 	image = models.ImageField()
 	dateCreated = models.DateTimeField(auto_now_add=True)
 	dateUpdated = models.DateTimeField(auto_now=True)
@@ -43,12 +51,19 @@ class newPage(models.Model):
 			self.displayDate = timezone.now()
 		super().save(*args, **kwargs)
 
+	def __str__(self):
+		return self.heading
+
+
 class loadingModal(models.Model):
-	html = models.TextField()
-	linkto = models.TextField()
+	data = tinymce_models.HTMLField()
+	linkto = models.CharField(max_length=1024)
 	image = models.ImageField(blank=True)
 	dateUpdated = models.DateTimeField(auto_now=True)
 	archieve = models.BooleanField(default=False, help_text="Hides this information")
 
 class AdminControls(models.Model):
 	admissionsOn = models.BooleanField(default=True)
+	def __str__(self):
+		return "ON" if self.heading else "OFF"
+

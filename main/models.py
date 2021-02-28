@@ -3,7 +3,7 @@ from django.utils import timezone
 from tinymce import models as tinymce_models
 from django.utils.html import mark_safe
 
-class information(models.Model):
+class news(models.Model):
 	heading = models.CharField(max_length=1024)
 	details = tinymce_models.HTMLField()
 	dateCreated = models.DateTimeField(auto_now_add=True)

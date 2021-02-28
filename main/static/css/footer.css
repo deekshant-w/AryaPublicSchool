@@ -1,0 +1,8 @@
+.footerDetail{
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.font-weight-normal > tr > td{
+  padding: 1vw;
+}

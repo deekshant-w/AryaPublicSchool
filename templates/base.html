@@ -64,11 +64,16 @@
   <div id="root">
 
     <!-- import header -->
+    {% include 'header.html' %}
 
     <!-- import content -->
+    <div class="contentWrapper">
+
 	{% block content %}{% endblock content %}
+    </div>
 
     <!-- import footer -->
+    {% include 'footer.html' %}
 
   </div>
 
@@ -79,9 +84,17 @@
   ></script>
 
   <script type="text/javascript">
+  //preloader
       $(window).on("load",function() {
           $('#preloader').fadeOut('slow');
       });
+
+      // footer js
+      let thisYear = new Date();
+      document.getElementById("thisYear").innerText = thisYear.getFullYear();
+
+
+
   </script>
 
 </body>

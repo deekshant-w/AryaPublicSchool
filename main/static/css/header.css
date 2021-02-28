@@ -1,0 +1,25 @@
+/* navbar css */
+  body{
+    background: whitesmoke;
+  }
+
+  @media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 2rem;
+    }
+  }
+  .navbar-brand{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 0px;
+  }
+  #navbarLogoImg{
+    margin-right: 0px;
+    margin-top: -0.5vmin;
+    margin-bottom: -0.5vmin;
+    height: 9vmin;
+  }
+  .navbar-brand > h{
+    font-size: 1.5rem;
+    padding-left: 2vmin
+  }

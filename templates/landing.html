@@ -182,8 +182,11 @@ rel="stylesheet"
                 <div class="card text-center ">
                   <div class="card-header paraHeading">News <i class="fas fa-chevron-right"></i></div>
                   <div class="card-body">
+
                     <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
+                      <ul>
+                        <li>aside</li>
+                      </ul>Some quick example text to build on the card title and make up the bulk of the
                       card's content.
                     </p>
                     <p class="card-text">
@@ -279,12 +282,15 @@ rel="stylesheet"
 
       <!-- part 4 About Us -->
 
+        <div class="row aboutWrapper">
+
           <!-- About section -->
           <section class="aboutSection container-sm shadow-2-strong">
             <h2 class="aboutHead">About Us</h2>
             <p class="aboutBody lead">Arya Public school, Malviya Nagar, New Delhi, is a Public school, up to 8th standard run by the management of Arya Samaj Society Malviya Nagar, New Delhi. It was established in March 1988 by the efforts of many dedicated members of Arya Samaj, Malviya Nagar. Arya Public school is a co-ed Middle school, recognized by the Directorate of Education, New Delhi. The building of the school is a part of the spacious building of Arya Samaj Society consisting of nearly 30 rooms. The school has about 600 students whose excellence can be perceived in various spheres. The school is firmly rooted in enriching philosophy of Maharishi Dayanand Saraswati highlighting the importance of value education and the need of the society for balanced individual who can become conscientious citizens of our country. The academic performance of the students is excellent due to the experienced and dedicated faculty. The school provides opportunities for students to excel in Games and Sports, Dance and Music, Debates, Recitations etc. Not only this, the school strives to make its students true Arya Citizens of the country. Emphasis is laid upon our ancient culture and Vedic tradition. In this context, we are proud to say that our students are well versed in the Vedic culture by performing regular Hawan, Mantra recitation which are a regular feature in the school time table. Moral and Value education is imparted to students not only by the teachers but also by organizing religious discourses by eminent spiritual leaders. We are striving hard to uphold the above stated moral values and run the school as per the present atmosphere of India.
             </p>
           </section>
+        </div>
           <!-- about section end -->
 
 
@@ -448,6 +454,7 @@ rel="stylesheet"
           </div>
           <!-- people modals end -->
 </div>
+<script type="text/javascript" src="{% static 'js/vanilla-tilt.min.js' %}"></script>
 <script src="{% static 'js/landing.js' %}"></script>
 
 {% endblock content %}

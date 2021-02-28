@@ -1,4 +1,5 @@
 $(window).on("load",function() {
+    $('#root').css('display','inherit')
     $('#preloader').fadeOut('slow');
 });
 

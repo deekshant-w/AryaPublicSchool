@@ -52,8 +52,16 @@
 
 /* part4 */
 
+.aboutWrapper{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
   /*about css*/
   .aboutSection{
+    width: 75%;
     padding: 5vmin 10vmin;
   }
   .aboutHead{
@@ -69,6 +77,8 @@
   /*a word css part5 */
   .wordSection{
     text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   .testimonial-card .card-up {
     height: 120px;

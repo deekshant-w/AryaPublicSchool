@@ -2,6 +2,12 @@
 .row{
   --bs-gutter-x:0;
 }
+.centerall{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
 
 /* part1 part2 parent */
 .landingParent{
@@ -181,7 +187,8 @@
 /* hide scrollbar */
 .noticeNewsParents > .card > .card-body{
   overflow-y: scroll;
-  height: 36rem;
+  height: max-content;
+  max-height: 36rem;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   padding-bottom: 2rem;

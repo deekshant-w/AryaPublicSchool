@@ -179,99 +179,42 @@ rel="stylesheet"
           <div class="col-sm-10">
             <div class="row">
               <div class="col-md-6 col-sm-12 newsParent noticeNewsParents">
-                <div class="card text-center ">
-                  <div class="card-header paraHeading">News <i class="fas fa-chevron-right"></i></div>
+                <div class="card text-center shadow-4-strong">
+                  <div class="card-header paraHeading">News </div>
                   <div class="card-body">
-
-                    <p class="card-text">
-                      <ul>
-                        <li>aside</li>
-                      </ul>Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-
-                    <button type="button" class="btn btn-primary">Button</button>
+                    {% for info in data.news %}
+                      <p class="card-text">
+                        <span class="paraHeading">{{info.heading}} &nbsp;&nbsp; - &nbsp;&nbsp; {{info.displayDate}}</span>
+                        {% if info.important %}
+                        <img src="{% static 'images/new.gif' %}" alt="">
+                        {% endif %}
+                        <br>
+                        {{info.details|safe}}
+                      </p>
+                    {% endfor %}
+                  </div>
+                  <div class="card-footer centerall">
+                    <a href="/news" class="btn buttons">More</a>
                   </div>
                 </div>
               </div>
               <div class="col-md-6 col-sm-12 noticeParent noticeNewsParents">
-                <div class="card text-center ">
-                  <div class="card-header paraHeading">Notice <i class="fas fa-chevron-right"></i></div>
+                <div class="card text-center shadow-4-strong">
+                  <div class="card-header paraHeading">Notice </div>
                   <div class="card-body">
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p><p class="card-text">
-                      Some quick example text to build on the card title and make up the bulk of the
-                      card's content.
-                    </p>
-
-                    <button type="button" class="btn btn-primary">Button</button>
+                    {% for info in data.notices %}
+                      <p class="card-text">
+                        <a class="anchors" href="{{info.file.url}}" download="{{info.file.url}}" target="_blank">
+                        <span class="paraHeading">{{info.heading}} &nbsp;&nbsp; - &nbsp;&nbsp; {{info.displayDate}}</span>
+                        {% if info.important %}
+                        <img src="{% static 'images/new.gif' %}" alt="">
+                        {% endif %}
+                        </a>
+                      </p>
+                    {% endfor %}
+                  </div>
+                  <div class="card-footer centerall">
+                    <a href="/notice" class="btn buttons">More</a>
                   </div>
                 </div>
               </div>

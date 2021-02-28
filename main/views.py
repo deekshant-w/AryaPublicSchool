@@ -12,6 +12,9 @@ def landing(request):
 	if(AdminControls):
 		admissionsOn = 1
 		data = AdminControls[0]
+	data["notices"] = M.notice.objects.filter(archieve=False).order_by('-displayDate')[:5]
+	data["news"] = M.news.objects.filter(archieve=False).order_by('-displayDate')[:5]
+
 	return render(request, 'landing.html', {'data':data,'admissionsOn':admissionsOn})
 
 def dkTemp(request):

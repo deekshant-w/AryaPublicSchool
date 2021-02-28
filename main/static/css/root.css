@@ -122,3 +122,20 @@ body{
   box-shadow: 0 1vh 10px 0 rgb(0 0 0 / 20%);
   padding-top: 1vmin;
 }
+.nav-link:hover{
+  color: var(--Orange) !important;
+}
+
+.buttons{
+  background-color: var(--Orange);
+  color: white;
+}
+.buttons:hover{
+  background-color: var(--RedOrange);
+}
+.anchors{
+  color: black;
+}
+.anchors:hover{
+  color: var(--Orange);
+}

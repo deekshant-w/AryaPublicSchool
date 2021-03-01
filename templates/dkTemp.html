@@ -154,11 +154,71 @@
   .lead {
     font-size: 2.8vmin;
   }
+
+  /*notice and news*/
+  .newsNoticeContainer{
+    text-align: center;
+  }
+  .listElements{
+    margin-bottom: 2vh;
+  }
+  .card-title{
+    margin-bottom: 2vh;
+  }
+  .newsNoticeCard{
+    cursor: pointer;
+  }
 </style>
 
 
 
-  <body>    
+  <body>
+    <br><br><br><br><br>
+    <!-- news and notice -->
+    <div class="container">
+      <div class="row newsNoticeContainer">
+        <div class="col-md-5">
+          <div class="card text-center shadow-1-strong newsNoticeCard">
+            <div class="card-header">2 days ago</div>
+            <div class="card-body">
+              <h2 class="card-title">Notice</h2>
+              <p class="card-text">
+                <ul style="text-align: justify;">
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                </ul>
+              </p>
+              <a href="#" class="btn btn-primary">View More</a>
+            </div>
+            <div class="card-footer text-muted">Total: 153 Notices</div>
+          </div>
+        </div>
+        <div class="offset-md-2 col-md-5">
+          <div class="card text-center shadow-1-strong newsNoticeCard">
+            <div class="card-header">2 days ago</div>
+            <div class="card-body">
+              <h2 class="card-title">Notice</h2>
+              <p class="card-text">
+                <ul style="text-align: justify;">
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                  <li class="listElements">asd</li>
+                </ul>
+              </p>
+              <a href="#" class="btn btn-primary">View More</a>
+            </div>
+            <div class="card-footer text-muted">Total: 153 Notices</div>
+          </div>
+        </div>
+      </div>  
+    </div>  
+
+
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <!-- Container wrapper -->
@@ -523,5 +583,17 @@
     document.querySelector("#personCard3").addEventListener('click',(e)=>{
       $("#modal3").modal('show');
     });
+
+    // news and notice
+    let hoverClass = "shadow-3-strong"
+    let boxes = document.querySelectorAll(".newsNoticeCard");
+    for(let i = 0; i < boxes.length; i++){
+      boxes[i].addEventListener('mouseenter',(e)=>{
+        boxes[i].classList.add(hoverClass);
+      });
+      boxes[i].addEventListener('mouseleave',(e)=>{
+        boxes[i].classList.remove(hoverClass);
+      });
+    }
   </script>
 </html>

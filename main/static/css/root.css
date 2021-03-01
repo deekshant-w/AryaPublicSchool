@@ -84,8 +84,8 @@ html{
 }
 body{
   font-size: var(--SizePara);
-  font-family: var(--FontPara);
-   background-color: #f5f5f5; /* smokeWhite */
+  /*font-family: var(--FontPara);*/
+  background-color: #f5f5f5; /* smokeWhite */
 }
 
 .contentWrapper{

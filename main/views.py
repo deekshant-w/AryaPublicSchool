@@ -7,14 +7,23 @@ import json
 import datetime
 
 def landing(request):
-	AdminControls = M.AdminControls.objects.all()
 	data = {}
-	admissionsOn = 0
-	if(AdminControls):
-		admissionsOn = 1
+	admissionsOn = False
+	
+	AdminControls = M.AdminControls.objects.all()
+	if(AdminControls and AdminControls[0].admissionsOn):
+		admissionsOn = True
 		data['admission'] = AdminControls[0]
-	data["notices"] = M.notice.objects.filter(archieve=False).order_by('-displayDate')[:5]
-	data["news"] = M.news.objects.filter(archieve=False).order_by('-displayDate')[:5]
+
+	noticeData = M.notice.objects.filter(archieve=False).order_by('-displayDate')
+	data["notices"] = noticeData[:5]
+	data["noticeCount"] = M.notice.objects.count()
+	data["lastNotice"] = noticeData[0]
+	
+	newsData = M.news.objects.filter(archieve=False).order_by('-displayDate')
+	data["news"] = newsData[:5]
+	data["newsCount"] = M.news.objects.count()
+	data['lastNews'] = newsData[0]
 
 	return render(request, 'landing.html', {'data':data,'admissionsOn':admissionsOn})
 
@@ -36,7 +45,6 @@ def notice(request):
 
 def news(request):
 	news = M.news.objects.filter(archieve=False).order_by('-displayDate')
-	print(news)
 	return render(request, 'news.html', {'information':news})
 
 def activitiesPage(request):
@@ -58,10 +66,7 @@ def serializePages(data):
 	return res
 
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET"])
 def pagesEndPoint(request):
-	data = json.loads(request.body)
-	if(data.get('safe',False)):
-		data = M.newPage.objects.all().order_by('-displayDate')
-		return JsonResponse(serializePages(data),safe=False)
-	return JsonResponse({'a':'b'})
+	data = M.newPage.objects.all().order_by('?')
+	return JsonResponse(serializePages(data),safe=False)

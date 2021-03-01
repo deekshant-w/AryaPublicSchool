@@ -29,12 +29,12 @@ rel="stylesheet"
           <div class="col-sm-12 gayatri marqueeWrapper">
             <p class="marquee subHeading">ओ३म्भूर्भुव: स्व: | तत्सवितुर्वरेण्यंभर्गोदेवस्यधीमहि | धियोयोन: प्रचोदयात् ||</p>
           </div>
-          {% if admissionsOn == 1 %}
+          {% if admissionsOn is True %}
           <div class="col-sm-12 marqueeWrapper">
             <p class="marquee subHeading"><a href="{{ data.admission.redirectUrl }}" id='admissions'>
               {{ data.admission.homePageText|safe }}</a></p>
-            {% endif %}
           </div>
+          {% endif %}
         </div>
 
       </div>
@@ -252,40 +252,36 @@ rel="stylesheet"
           <div class="row newsNoticeContainer">
             <div class="col-md-5">
               <div class="card text-center shadow-1-strong newsNoticeCard" onclick="window.location='/notice'">
-                <div class="card-header">Last Updated : {{ a|naturaltime }}</div>
+                <div class="card-header">Last Updated - {{ data.lastNotice.displayDate|naturaltime }}</div>
                 <div class="card-body">
-                  <h2 class="card-title">Notice</h2>
+                  <h1 class="card-title"><b>Notice</b></h1>
                   <p class="card-text">
                     <ul style="text-align: justify;">
-                      <li class="listElements"><img src="{% static 'images/new.gif' %}"> asd ef se fesn dlfks folksd jfl sdjfoi sdfo; iashd f oiah sdofiah s;i sokdlf slk faj dijfao;i sj;aoij aoir oi </li>
-                      <li class="listElements">asd</li>
-                      <li class="listElements">asd</li>
-                      <li class="listElements">asd</li>
-                      <li class="listElements">asd</li>
+                      {% for notice in data.notices %}
+                      <li class="listElements">{% if notice.important is True %}<img src="{% static 'images/new.gif' %}">&nbsp;&nbsp;{% endif %}{{ notice.heading }}</li>
+                      {% endfor %}
                     </ul>
                   </p>
                   <a href="/notice" class="btn btn-primary">View More</a>
                 </div>
-                <div class="card-footer text-muted">Total: 153 Notices</div>
+                <div class="card-footer text-muted">Total: {{ data.noticeCount }} Notices</div>
               </div>
             </div>
             <div class="offset-md-2 col-md-5">
               <div class="card text-center shadow-1-strong newsNoticeCard" onclick="window.location='/news'">
-                <div class="card-header">Last Updated : {{ a|naturaltime }}</div>
+                <div class="card-header">Last Updated - {{ data.lastNews.displayDate|naturaltime }}</div>
                 <div class="card-body">
-                  <h2 class="card-title">News</h2>
+                  <h1 class="card-title"><b>News</b></h1>
                   <p class="card-text">
                     <ul style="text-align: justify;">
-                      <li class="listElements"><img src="{% static 'images/new.gif' %}"> asd</li>
-                      <li class="listElements">asd</li>
-                      <li class="listElements">asd</li>
-                      <li class="listElements">asd</li>
-                      <li class="listElements">asd</li>
+                      {% for newz in data.news %}
+                      <li class="listElements">{% if newz.important is True %}<img src="{% static 'images/new.gif' %}">&nbsp;&nbsp;{% endif %}{{ newz.heading }}</li>
+                      {% endfor %}
                     </ul>
                   </p>
                   <a href="/news" class="btn btn-primary">View More</a>
                 </div>
-                <div class="card-footer text-muted">Total: 153 Notices</div>
+                <div class="card-footer text-muted">Total: {{ data.newsCount }} News</div>
               </div>
             </div>
           </div>

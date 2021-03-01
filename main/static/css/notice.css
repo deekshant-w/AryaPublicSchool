@@ -23,7 +23,7 @@ td.min {
   padding-right: 1vw !important;
 }
 td.max{
-  width: 60%;
+  min-width: 60%;
   word-break: break-all;
   /*text-align: justify;*/
 }

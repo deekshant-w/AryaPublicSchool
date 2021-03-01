@@ -39,3 +39,15 @@ document.querySelector("#personCard3").addEventListener('mouseleave',(e)=>{
 document.querySelector("#personCard3").addEventListener('click',(e)=>{
   $("#modal3").modal('show');
 });
+
+// news and notice
+let hoverClass = "shadow-3-strong"
+let boxes = document.querySelectorAll(".newsNoticeCard");
+for(let i = 0; i < boxes.length; i++){
+  boxes[i].addEventListener('mouseenter',(e)=>{
+    boxes[i].classList.add(hoverClass);
+  });
+  boxes[i].addEventListener('mouseleave',(e)=>{
+    boxes[i].classList.remove(hoverClass);
+  });
+}

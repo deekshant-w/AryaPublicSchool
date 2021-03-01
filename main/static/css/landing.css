@@ -52,6 +52,8 @@
   -moz-animation: scroll-left 2s linear infinite;
   -webkit-animation: scroll-left 2s linear infinite;
   animation: scroll-left 20s linear infinite;
+
+  animation-delay: -2s;
 }
 
 @-moz-keyframes scroll-left {
@@ -311,15 +313,18 @@
 }
 
 
-  .newsNoticeContainer{
+.newsNoticeContainer{
     text-align: center;
-  }
-  .listElements{
-    margin-bottom: 2vh;
-  }
-  .card-title{
-    margin-bottom: 2vh;
-  }
-  .newsNoticeCard{
-    cursor: pointer;
-  }
+}
+.listElements{
+  margin-bottom: 2vh;
+}
+.card-title{
+  margin-bottom: 2vh;
+}
+.newsNoticeCard{
+  cursor: pointer;
+}
+.newsNoticeCard:first-of-type{
+  margin-bottom: 5vh;
+}

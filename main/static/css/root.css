@@ -139,3 +139,29 @@ body{
 .anchors:hover{
   color: var(--Orange);
 }
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.25);
+  background-color: whitesmoke;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background-color: var(--Orange);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d8751b; 
+}
+::-webkit-scrollbar:horizontal {
+  display: none;
+}

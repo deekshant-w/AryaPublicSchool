@@ -172,56 +172,52 @@ rel="stylesheet"
 
     </div>
   </div>
-  
+
   <div class="col-sm-12">
     <div class="row">
 
       <!-- part 3 -->
 
       <!-- notices and news-->
-      <div class="col-md-12 col-sm-12">
-        <div class="row cardWrapper">
-          <div class="col-sm-10">
-            <div class="row">
-              <div class="col-md-6 col-sm-12 newsParent noticeNewsParents">
-                <div class="card text-center shadow-4-strong">
-                  <div class="card-header paraHeading">News </div>
-                  <div class="card-body">
-                    {% for info in data.news %}
-                      <p class="card-text">
-                        <span class="paraHeading">{{info.heading}} &nbsp;&nbsp; - &nbsp;&nbsp; {{info.displayDate}}</span>
-                        {% if info.important %}
-                        <img src="{% static 'images/new.gif' %}" alt="">
-                        {% endif %}
-                        <br>
-                        {{info.details|safe}}
-                      </p>
-                    {% endfor %}
-                  </div>
-                  <div class="card-footer centerall">
-                    <a href="/news" class="btn buttons">More</a>
-                  </div>
+      <div class="col-md-12 col-sm-12 cardWrapper">
+        <div class="container">
+          <div class="row newsNoticeContainer">
+            <div class="col-md-5">
+              <div class="card text-center shadow-1-strong newsNoticeCard" onclick="window.location='/notice'">
+                <div class="card-header">Last Updated : {{ a|naturaltime }}</div>
+                <div class="card-body">
+                  <h2 class="card-title">Notice</h2>
+                  <p class="card-text">
+                    <ul style="text-align: justify;">
+                      <li class="listElements"><img src="{% static 'images/new.gif' %}"> asd ef se fesn dlfks folksd jfl sdjfoi sdfo; iashd f oiah sdofiah s;i sokdlf slk faj dijfao;i sj;aoij aoir oi </li>
+                      <li class="listElements">asd</li>
+                      <li class="listElements">asd</li>
+                      <li class="listElements">asd</li>
+                      <li class="listElements">asd</li>
+                    </ul>
+                  </p>
+                  <a href="/notice" class="btn btn-primary">View More</a>
                 </div>
+                <div class="card-footer text-muted">Total: 153 Notices</div>
               </div>
-              <div class="col-md-6 col-sm-12 noticeParent noticeNewsParents">
-                <div class="card text-center shadow-4-strong">
-                  <div class="card-header paraHeading">Notice </div>
-                  <div class="card-body">
-                    {% for info in data.notices %}
-                      <p class="card-text">
-                        <a class="anchors" href="{{info.file.url}}" download="{{info.file.url}}" target="_blank">
-                        <span class="paraHeading">{{info.heading}} &nbsp;&nbsp; - &nbsp;&nbsp; {{info.displayDate}}</span>
-                        {% if info.important %}
-                        <img src="{% static 'images/new.gif' %}" alt="">
-                        {% endif %}
-                        </a>
-                      </p>
-                    {% endfor %}
-                  </div>
-                  <div class="card-footer centerall">
-                    <a href="/notice" class="btn buttons">More</a>
-                  </div>
+            </div>
+            <div class="offset-md-2 col-md-5">
+              <div class="card text-center shadow-1-strong newsNoticeCard" onclick="window.location='/news'">
+                <div class="card-header">Last Updated : {{ a|naturaltime }}</div>
+                <div class="card-body">
+                  <h2 class="card-title">News</h2>
+                  <p class="card-text">
+                    <ul style="text-align: justify;">
+                      <li class="listElements"><img src="{% static 'images/new.gif' %}"> asd</li>
+                      <li class="listElements">asd</li>
+                      <li class="listElements">asd</li>
+                      <li class="listElements">asd</li>
+                      <li class="listElements">asd</li>
+                    </ul>
+                  </p>
+                  <a href="/news" class="btn btn-primary">View More</a>
                 </div>
+                <div class="card-footer text-muted">Total: 153 Notices</div>
               </div>
             </div>
           </div>
@@ -401,7 +397,10 @@ rel="stylesheet"
             </div>
           </div>
           <!-- people modals end -->
-</div>
+        </div>
+      </div>
+    </div>
+
 <script type="text/javascript" src="{% static 'js/vanilla-tilt.min.js' %}"></script>
 <script src="{% static 'js/landing.js' %}"></script>
 

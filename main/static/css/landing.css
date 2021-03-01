@@ -103,8 +103,8 @@
 /* part3 */
 
 .cardWrapper{
-  display: flex;
-  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
 }
 
 /* part4 */

@@ -25,10 +25,13 @@ rel="stylesheet"
             <div class="subHeading schoolAddress"><p class='scAddress'>MAHARISHI&nbsp;DAYANAND&nbsp;MARG, MALVIYA&nbsp;NAGAR, NEW&nbsp;DELHI&nbsp;-&nbsp;110017</p></div>
           </div>
           <div class="col-sm-12 textCenter"><p class='schoolContact'>011 - 41617157 | arya.public@yahoo.com</p></div>
-          <div class="col-sm-12 gayatri">
-            <marquee class="subHeading" behavior="scroll" direction="left">ओ३म्भूर्भुव: स्व: | तत्सवितुर्वरेण्यंभर्गोदेवस्यधीमहि | धियोयोन: प्रचोदयात् ||</marquee>
-            {% if admissionsOn == 1 %}
-            <marquee class="subHeading" behavior="scroll" direction="left"><a href="{{ data.admission.redirectUrl }}" id='admissions'>{{ data.admission.homePageText|safe }}</a></marquee>
+          <div class="col-sm-12 gayatri marqueeWrapper">
+            <p class="marquee subHeading">ओ३म्भूर्भुव: स्व: | तत्सवितुर्वरेण्यंभर्गोदेवस्यधीमहि | धियोयोन: प्रचोदयात् ||</p>
+          </div>
+          {% if admissionsOn == 1 %}
+          <div class="col-sm-12 marqueeWrapper">
+            <p class="marquee subHeading"><a href="{{ data.admission.redirectUrl }}" id='admissions'>
+              {{ data.admission.homePageText|safe }}</a></p>
             {% endif %}
           </div>
         </div>

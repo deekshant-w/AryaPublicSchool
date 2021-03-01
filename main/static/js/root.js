@@ -14,13 +14,13 @@ data = JSON.stringify({
 
 let csrftoken = getCookie('csrftoken');
 let response = fetch("/pagesEndPoint", {
-    method: 'POST',
-    body: data,
+    method: 'GET',
     headers: { 'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
         "X-CSRFToken": csrftoken },
 })
 response.then((res)=>{
+    console.log(res);
 	try{
 		return res.json();
 	}catch{

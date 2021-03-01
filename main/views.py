@@ -66,10 +66,7 @@ def serializePages(data):
 	return res
 
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET"])
 def pagesEndPoint(request):
-	data = json.loads(request.body)
-	if(data.get('safe',False)):
-		data = M.newPage.objects.all().order_by('?')
-		return JsonResponse(serializePages(data),safe=False)
-	return JsonResponse({'a':'b'})
+	data = M.newPage.objects.all().order_by('?')
+	return JsonResponse(serializePages(data),safe=False)

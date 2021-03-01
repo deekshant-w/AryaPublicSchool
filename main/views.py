@@ -4,6 +4,7 @@ from main import models as M
 from django.db.models import Q
 from django.views.decorators.http import require_http_methods
 import json
+import datetime
 
 def landing(request):
 	AdminControls = M.AdminControls.objects.all()
@@ -18,7 +19,8 @@ def landing(request):
 	return render(request, 'landing.html', {'data':data,'admissionsOn':admissionsOn})
 
 def dkTemp(request):
-	return render(request, 'dkTemp.html')
+	a = datetime.datetime.now() - datetime.timedelta(days=2,hours=2)
+	return render(request, 'dkTemp.html',{'a':a})
 
 def dynamicPage(request, p):
 	p = p.lower().strip()

@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-lg imgColumn" id='hght'>
         <div class="pageHeading"><h1 class="display-3 shadow-2-strong"><b>{{ page.heading|title }}</b></h1></div> 
-        <img class='pageImg shadow-5-strong img-thumbnail' src="{{ page.image.url }}">
+        <img class='pageImg shadow-5-strong img-thumbnail' src="{{ page.image.url }}" id='image'>
       </div>
       <div class="col-lg dataColumn">
         <div class="letter" id='letter'>
@@ -66,4 +66,15 @@
     {% endif %}
   }
 </style>
+<script type="text/javascript" src="{% static 'js/vanilla-tilt.min.js' %}"></script>
+<script >
+  VanillaTilt.init(document.getElementById("image"), {
+    reverse: true,
+    max: 2,
+    speed: 100,
+    gyroscope: true,
+    glare: true,
+    reset: false
+  });
+</script>
 {% endblock content %}

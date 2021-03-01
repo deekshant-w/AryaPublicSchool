@@ -1,14 +1,18 @@
 /* parents */
+.admissionPageWrapper{
+  margin-left: 0;
+  margin-right: 0;
+}
 
 .textParent{
-  padding: 3rem;
+  padding: 3vw;
 }
 .columnParent{
   margin-bottom: 3rem;
 }
 
 .textWrapper{
-  padding: 3rem;
+  padding: 5vw;
   border: var(--Orange) solid;
   line-height: 2.5rem;
 }
@@ -18,9 +22,13 @@
   justify-content: center;
   margin-bottom: 5rem;
 }
-.documentsWrapper{
-  border-right: var(--Orange) solid;
-}
+
+
+@media(min-width: 952px){
+  .documentsWrapper{
+    border-right: var(--Orange) solid;
+  }
+  
 .topicHeading{
   margin-bottom: 3rem !important;
 }

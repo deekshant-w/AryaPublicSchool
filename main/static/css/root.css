@@ -22,9 +22,9 @@
     --FontErrors:RobotoMono;
 
 /* font Size  */
-    --SizeHeading: 4.38rem;
-    --SizeSubHeading: 2rem;
-    --SizeParaHeading: 1.37rem;
+    --SizeHeading: calc(1.525rem + 3.3vw);
+    --SizeSubHeading: calc(0.525rem + 2.3vw);
+    --SizeParaHeading: calc(0.525rem + 2vw);
     --SizePara: 1rem;
     --SizeErrors:0.5rem;
 }
@@ -160,7 +160,7 @@ body{
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d8751b; 
+  background: #d8751b;
 }
 ::-webkit-scrollbar:horizontal {
   display: none;

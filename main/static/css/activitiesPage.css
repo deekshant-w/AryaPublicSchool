@@ -1,10 +1,12 @@
 
 /* parent */
 .activitiesParent{
-  padding: 3rem;
+  padding: 5vw;
+  margin-left: 0;
+  margin-right: 0;
 }
 .activitiesWrapper{
-  padding: 3rem;
+  padding: 2vw;
   border: var(--Orange) solid;
 }
 
@@ -14,7 +16,7 @@
   padding-bottom: 2rem;
 }
 .imageParent > div > img{
-  width: 34rem;
+  width: calc(11rem + 34vw);
 }
 hr{
   color: var(--Orange);
@@ -22,6 +24,8 @@ hr{
 }
 .imageWrapper{
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 

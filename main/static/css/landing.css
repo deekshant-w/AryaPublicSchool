@@ -118,12 +118,17 @@
 
   /*about css*/
   .aboutSection{
-    width: 75%;
+    /*width: 75%;*/
     padding: 5vmin 10vmin;
+    background: white;
   }
   .aboutHead{
     text-align: center;
     padding-bottom: 1rem;
+    color: var(--Orange);
+    font-size: 2rem;
+    border-bottom: 2px solid;
+    margin-bottom: 1rem;
   }
 
   .aboutBody{

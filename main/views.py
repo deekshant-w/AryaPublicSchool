@@ -11,7 +11,7 @@ def landing(request):
 	admissionsOn = 0
 	if(AdminControls):
 		admissionsOn = 1
-		data = AdminControls[0]
+		data['admission'] = AdminControls[0]
 	data["notices"] = M.notice.objects.filter(archieve=False).order_by('-displayDate')[:5]
 	data["news"] = M.news.objects.filter(archieve=False).order_by('-displayDate')[:5]
 

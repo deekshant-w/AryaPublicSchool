@@ -28,7 +28,7 @@ rel="stylesheet"
           <div class="col-sm-12 gayatri">
             <marquee class="subHeading" behavior="scroll" direction="left">ओ३म्भूर्भुव: स्व: | तत्सवितुर्वरेण्यंभर्गोदेवस्यधीमहि | धियोयोन: प्रचोदयात् ||</marquee>
             {% if admissionsOn == 1 %}
-            <marquee class="subHeading" behavior="scroll" direction="left"><a href="{{ data.redirectUrl }}" id='admissions'>{{ data.homePageText|safe }}</a></marquee>
+            <marquee class="subHeading" behavior="scroll" direction="left"><a href="{{ data.admission.redirectUrl }}" id='admissions'>{{ data.admission.homePageText|safe }}</a></marquee>
             {% endif %}
           </div>
         </div>

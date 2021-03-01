@@ -2,6 +2,11 @@ from django.db import models
 from django.utils import timezone
 from tinymce import models as tinymce_models
 from django.utils.html import mark_safe
+import secrets
+import time
+
+def renameFiles(name):
+	return secrets.token_urlsafe(5) + str(int(time.time()*1000)%100000) + name
 
 class news(models.Model):
 	heading = models.CharField(max_length=1024)
@@ -33,6 +38,7 @@ class notice(models.Model):
 	def save(self, *args, **kwargs):
 		if not self.displayDate:
 			self.displayDate = timezone.now()
+		self.file.name = renameFiles(self.file.name)
 		super().save(*args, **kwargs)
 
 	def __str__(self):
@@ -58,6 +64,7 @@ class newPage(models.Model):
 		else:
 			self.vertival = False
 		self.url = self.url.lower().strip()
+		self.image.name = renameFiles(self.image.name)
 		super().save(*args, **kwargs)
 
 	def __str__(self):

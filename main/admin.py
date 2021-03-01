@@ -4,5 +4,5 @@ from .models import *
 admin.site.register(news)
 admin.site.register(notice)
 admin.site.register(newPage)
-admin.site.register(loadingModal)
+# admin.site.register(loadingModal)
 admin.site.register(AdminControls)

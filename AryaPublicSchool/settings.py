@@ -136,9 +136,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # firebase data storage
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']= str(BASE_DIR/'testing-b56ce-firebase-adminsdk-ux8z1-1b4940ed9b.json')
+os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r"C:\Projects\aps\arya-public-school-web-firebase-adminsdk-zcad0-a095058cfe.json"
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'testing-b56ce.appspot.com'
+GS_BUCKET_NAME = 'arya-public-school-web.appspot.com'
 GS_DEFAULT_ACL = "publicRead"
 
 # tinyMCE

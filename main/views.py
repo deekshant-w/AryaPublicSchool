@@ -16,14 +16,28 @@ def landing(request):
 		data['admission'] = AdminControls[0]
 
 	noticeData = M.notice.objects.filter(archieve=False).order_by('-displayDate')
-	data["notices"] = noticeData[:5]
 	data["noticeCount"] = M.notice.objects.count()
-	data["lastNotice"] = noticeData[0]
+	try:
+		data["notices"] = noticeData[:5]
+	except:
+		data["notices"] = []
+
+	try:
+		data["lastNotice"] = noticeData[0]
+	except:
+		data["lastNotice"] = False
 	
 	newsData = M.news.objects.filter(archieve=False).order_by('-displayDate')
-	data["news"] = newsData[:5]
 	data["newsCount"] = M.news.objects.count()
-	data['lastNews'] = newsData[0]
+	try:
+		data["news"] = newsData[:5]
+	except:
+		data["news"] = []
+
+	try:
+		data['lastNews'] = newsData[0]
+	except:
+		data['lastNews'] = False
 
 	return render(request, 'landing.html', {'data':data,'admissionsOn':admissionsOn})
 

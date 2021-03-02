@@ -128,7 +128,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # firebase data storage
 # PRODUCTION SETTINGS
 if(os.getenv("FIREBASE_JSON")):
-    print("secret ok")
     GS_CREDENTIALS = service_account.Credentials.from_service_account_info(json.loads(base64.b64decode(os.environ.get("FIREBASE_JSON")).decode()))
 
 # DEVELOPMENT SETTINGS

@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from google.oauth2 import service_account
 import json
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cy+tw^b@!&pby40n+0yvw87q19!rk0cb(%1=sh7!r5hbajrp4b'
+SECRET_KEY = os.getenv("APS_SECRET_KEY") or 'cy+tw^b@!&pby40n+0yvw87q19!rk0cb(%1=sh7!r5hbajrp4b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -171,3 +172,6 @@ TINYMCE_DEFAULT_CONFIG = {
 TINYMCE_SPELLCHECKER = True
 TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
 TINYMCE_COMPRESSOR = False
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())

@@ -1,0 +1,1 @@
+web: gunicorn AryaPublicSchool.wsgi --log-file -

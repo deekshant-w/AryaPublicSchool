@@ -52,7 +52,9 @@ def dynamicPage(request, p):
 	if(page):
 		return render(request, 'dynamicPage.html', {'page':page[0]})
 	else:
-		return HttpResponse(status=404)         
+		responce = render(request, "404.html")
+		responce.status_code = 404
+		return responce
 
 def notice(request):
 	notices = M.notice.objects.filter(archieve=False).order_by('-displayDate')

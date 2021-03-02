@@ -3,6 +3,7 @@ import os
 from google.oauth2 import service_account
 import json
 import django_heroku
+import base64
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,7 +128,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # firebase data storage
 # PRODUCTION SETTINGS
 if(os.getenv("FIREBASE_JSON")):
-    GS_CREDENTIALS = service_account.Credentials.from_service_account_info(json.loads(os.environ.get("FIREBASE_JSON")))
+    print("secret ok")
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_info(json.loads(base64.b64decode(os.environ.get("FIREBASE_JSON")).decode()))
+
 # DEVELOPMENT SETTINGS
 # place the file one directory up of manage.py
 else:

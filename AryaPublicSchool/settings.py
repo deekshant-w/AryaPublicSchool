@@ -132,7 +132,7 @@ if(os.getenv("FIREBASE_JSON")):
 # place the file one directory up of manage.py
 else:
     try:
-        GS_CREDENTIALS = service_account.Credentials.from_service_account_file(r"C:\Projects\aps\arya-public-school-web-firebase-adminsdk-zcad0-a095058cfe.json")
+        GS_CREDENTIALS = service_account.Credentials.from_service_account_file(r"..\arya-public-school-web-firebase-adminsdk-zcad0-a095058cfe.json")
     except Exception as e:
         print("ERR-FIREBASE-JSON",e)
 

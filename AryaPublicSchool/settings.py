@@ -124,14 +124,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # firebase data storage
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r"C:\Projects\aps\arya-public-school-web-firebase-adminsdk-zcad0-a095058cfe.json"
+# PRODUCTION SETTINGS
 if(os.getenv("FIREBASE_JSON")):
     GS_CREDENTIALS = service_account.Credentials.from_service_account_info(json.loads(os.environ.get("FIREBASE_JSON")))
+# DEVELOPMENT SETTINGS
+# place the file one directory up of manage.py
 else:
     try:
         GS_CREDENTIALS = service_account.Credentials.from_service_account_file(r"C:\Projects\aps\arya-public-school-web-firebase-adminsdk-zcad0-a095058cfe.json")
     except Exception as e:
         print("ERR-FIREBASE-JSON",e)
+
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'arya-public-school-web.appspot.com'
 GS_DEFAULT_ACL = "publicRead"

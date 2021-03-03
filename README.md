@@ -1,4 +1,4 @@
-# Arya Public School Website
+# [Arya Public School Website](http://aryapublicschool.herokuapp.com/ "Arya Public School Website")
 
 ###### Developed and Designed by Deekshant Wadhwa and Nitesh Kumar Singh
 ## General Notice

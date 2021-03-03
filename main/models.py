@@ -4,6 +4,9 @@ from tinymce import models as tinymce_models
 from django.utils.html import mark_safe
 import secrets
 import time
+from PIL import Image
+from django.core.files.base import ContentFile
+from io import StringIO,BytesIO
 
 def renameFiles(name):
 	return secrets.token_urlsafe(5) + str(int(time.time()*1000)%100000) + name
@@ -86,3 +89,32 @@ class AdminControls(models.Model):
 	def __str__(self):
 		return "Admin Controls"
 
+
+def cropper(original_image):
+	img_io = BytesIO()
+	name = original_image.name
+	original_image = Image.open(original_image)
+	print(dir(original_image))
+	w, h = original_image.size
+	if h<w:
+		new_w = int((16/9)*h)
+		cropped_img = original_image.crop((int((w-new_w)/2), 0, w-int((w-new_w)/2), h))
+	elif w<h:
+		new_h = int((9/16)*w)
+		cropped_img = original_image.crop(0,int((h-new_h)/2), w,h-int((h-new_h)/2))
+	else:
+		cropped_img = original_image
+	cropped_img.save(img_io, format='JPEG', quality=100)
+	img_content = ContentFile(img_io.getvalue(), name+'.jpg')
+	return img_content
+
+class CarouselImages(models.Model):
+	name =	models.CharField(max_length=1024)
+	image = models.ImageField()
+
+	def __str__(self):
+		return self.name
+
+	def save(self, *args, **kwargs):
+		self.image = cropper(self.image)
+		super().save(*args, **kwargs)

@@ -9,7 +9,7 @@ import datetime
 def landing(request):
 	data = {}
 	admissionsOn = False
-	
+
 	AdminControls = M.AdminControls.objects.all()
 	if(AdminControls and AdminControls[0].admissionsOn):
 		admissionsOn = True
@@ -26,7 +26,7 @@ def landing(request):
 		data["lastNotice"] = noticeData[0]
 	except:
 		data["lastNotice"] = False
-	
+
 	newsData = M.news.objects.filter(archieve=False).order_by('-displayDate')
 	data["newsCount"] = M.news.objects.count()
 	try:
@@ -38,6 +38,8 @@ def landing(request):
 		data['lastNews'] = newsData[0]
 	except:
 		data['lastNews'] = False
+
+	data['carouselImages'] = M.CarouselImages.objects.all()
 
 	return render(request, 'landing.html', {'data':data,'admissionsOn':admissionsOn})
 

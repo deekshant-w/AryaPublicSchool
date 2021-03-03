@@ -7,12 +7,12 @@ import base64
 
 # import sentry_sdk
 # from sentry_sdk.integrations.django import DjangoIntegration
-
+#
 # sentry_sdk.init(
-#     dsn="https://a08fecc7207b4ba79748a53c7e2ba491@o540274.ingest.sentry.io/5658391",
+#     dsn="https://9c2f70e7fa1248b0ab2118bae39b62cc@o540354.ingest.sentry.io/5658550",
 #     integrations=[DjangoIntegration()],
 #     traces_sample_rate=1.0,
-
+#
 #     # If you wish to associate users to errors (assuming you are using
 #     # django.contrib.auth) you may enable sending PII data.
 #     send_default_pii=True

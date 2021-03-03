@@ -48,172 +48,31 @@ rel="stylesheet"
 
           <div id="carouselBox" class="carousel slide" data-mdb-ride="carousel">
             <div class="carousel-indicators">
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="3"
-                aria-label="Slide 4"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="4"
-                aria-label="Slide 5"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="5"
-                aria-label="Slide 6"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="6"
-                aria-label="Slide 7"
-              ></button>
-
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="7"
-                aria-label="Slide 8"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="8"
-                aria-label="Slide 9"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="9"
-                aria-label="Slide 10"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="10"
-                aria-label="Slide 11"
-              ></button>
-              <button
-                type="button"
-                data-mdb-target="#carouselBox"
-                data-mdb-slide-to="11"
-                aria-label="Slide 12"
-              ></button>
-
+              {% for img in data.carouselImages %}
+                <button
+                  type="button"
+                  data-mdb-target="#carouselBox"
+                {% if forloop.counter == 1 %}
+                  class="active"
+                  aria-current="true"
+                {% else %}
+                {% endif %}
+                  data-mdb-slide-to="{{ forloop.counter0 }}"
+                  aria-label="Slide {{ forloop.counter }}"
+                ></button>
+              {% endfor %}
             </div>
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              {% for img in data.carouselImages %}
+              <div class="carousel-item {% if forloop.counter == 1 %}active {% endif %}">
                 <img
-                  src="{% static 'images/supplied/annualFunc.webp' %}"
+                  src="{{img.image.url}}"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/supplied/karate.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/supplied/flag.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
+                {% endfor %}
 
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/supplied/DSC_6985.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/supplied/labCarausel.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/supplied/classicalCarausel.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/carousel8.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/carousel9.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/carousel10.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/carousel11.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="{% static 'images/carousel12.webp' %}"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-
-            </div>
             <button
               class="carousel-control-prev"
               type="button"
@@ -232,7 +91,9 @@ rel="stylesheet"
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
+            </div>
           </div>
+
         </div>
 
       </div>

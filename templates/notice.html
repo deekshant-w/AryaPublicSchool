@@ -21,7 +21,7 @@
         <tr>
           <th scope="row">{{ notice.displayDate }}</th>
           <td class="max">{% if notice.important is True %}<img src="{% static 'images/new.gif' %}">&nbsp;&nbsp;{% endif %}<b>{{ notice.heading }}</b></td>
-          <td class="min"><a href="{{ notice.file.url }}"><b>DOWNLOAD</b></a></td>
+          {% if notice.file.name %}<td class="min"><a href="{{ notice.file.url }}"><b>DOWNLOAD</b></a></td>{% endif %}
         </tr>
         {% endfor %}
       </tbody>

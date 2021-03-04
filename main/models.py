@@ -13,7 +13,7 @@ def renameFiles(name):
 
 class news(models.Model):
 	heading = models.CharField(max_length=1024)
-	details = tinymce_models.HTMLField()
+	details = tinymce_models.HTMLField(blank=True, default=".")
 	dateCreated = models.DateTimeField(auto_now_add=True)
 	dateUpdated = models.DateTimeField(auto_now=True)
 	displayDate = models.DateTimeField(blank=True, help_text="Used to sort the all informations")
@@ -31,7 +31,7 @@ class news(models.Model):
 
 class notice(models.Model):
 	heading = models.TextField()
-	file = models.FileField()
+	file = models.FileField(blank=True)
 	dateCreated = models.DateTimeField(auto_now_add=True)
 	dateUpdated = models.DateTimeField(auto_now=True)
 	displayDate = models.DateTimeField(blank=True, help_text="Used to sort the all informations")
@@ -41,7 +41,8 @@ class notice(models.Model):
 	def save(self, *args, **kwargs):
 		if not self.displayDate:
 			self.displayDate = timezone.now()
-		self.file.name = renameFiles(self.file.name)
+		if(self.file):
+			self.file.name = renameFiles(self.file.name)
 		super().save(*args, **kwargs)
 
 	def __str__(self):

@@ -299,7 +299,12 @@
   #schoolName{
     margin-top: -1rem !important;
   }
-
+  .scAddress{
+    margin-top: 1vh;
+  }
+  .schoolContact{
+    margin-top: 1vh;
+  }
 }
 
 #admissions{

@@ -162,6 +162,7 @@ GS_DEFAULT_ACL = "publicRead"
 DJANGO_SETTINGS_MODULE='testtinymce.settings'
 TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
+    'height' : "320",
     'custom_undo_redo_levels': 20,
     'selector': 'textarea',
     'theme': 'silver',

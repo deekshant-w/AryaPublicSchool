@@ -70,7 +70,12 @@ def activitiesPage(request):
 	return render(request, 'activitiesPage.html')
 
 def admissionPage(request):
-	return render(request, 'admissionPage.html')
+	data = M.AdmissionPage.objects.all()
+	if len(data):
+		data = data[0].data
+	else:
+		data = ""
+	return render(request, 'admissionPage.html', {'data':data})
 
 def serializePages(data):
 	res = []

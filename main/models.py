@@ -119,3 +119,8 @@ class CarouselImages(models.Model):
 	def save(self, *args, **kwargs):
 		self.image = cropper(self.image)
 		super().save(*args, **kwargs)
+
+class AdmissionPage(models.Model):
+	data = tinymce_models.HTMLField()
+	def __str__(self):
+		return "Admission Page Data"

@@ -2,8 +2,10 @@ from pathlib import Path
 import os
 from google.oauth2 import service_account
 import json
-import django_heroku
 import base64
+import dj_database_url
+from django.test.runner import DiscoverRunner
+from pathlib import Path
 
 # import sentry_sdk
 # from sentry_sdk.integrations.django import DjangoIntegration
@@ -32,7 +34,7 @@ SECRET_KEY = os.getenv("APS_SECRET_KEY") or 'cy+tw^b@!&pby40n+0yvw87q19!rk0cb(%1
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
+IS_HEROKU = "DYNO" in os.environ
 
 # Application definition
 
@@ -94,6 +96,15 @@ DATABASES = {
     }
 }
 
+MAX_CONN_AGE = 600
+if "DATABASE_URL" in os.environ:
+    # Configure Django for DATABASE_URL environment variable.
+    DATABASES["default"] = dj_database_url.config(
+        conn_max_age=MAX_CONN_AGE, ssl_require=True)
+
+    # Enable test database if found in CI environment.
+    if "CI" in os.environ:
+        DATABASES["default"]["TEST"] = DATABASES["default"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -123,8 +134,6 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
@@ -140,6 +149,14 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+class HerokuDiscoverRunner(DiscoverRunner):
+    """Test Runner for Heroku CI, which provides a database for you.
+    This requires you to set the TEST database (done for you by settings().)"""
+
+    def setup_databases(self, **kwargs):
+        self.keepdb = True
+        return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
 
 # firebase data storage
 # PRODUCTION SETTINGS
@@ -192,5 +209,4 @@ TINYMCE_SPELLCHECKER = True
 TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
 TINYMCE_COMPRESSOR = False
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

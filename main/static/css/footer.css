@@ -10,3 +10,8 @@
 a.creator:hover{
 	color:var(--Orange);
 }
+
+.footerTable td {
+  padding-left: 1% !important;
+  padding-right: 1% !important;
+}

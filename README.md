@@ -1,7 +1,9 @@
 # [Arya Public School Website](http://aryapublicschool.herokuapp.com/ "Arya Public School Website")
 
 ###### Developed and Designed by Deekshant Wadhwa and Nitesh Kumar Singh
->Based on recent changes in Heroku's free tier plan, **the website is currently down**. It is in the process to be ported to [PythonAnywhere](https://www.pythonanywhere.com/) and the database contents are being transferred to Firebase.
+> The website is hosted on heroku. 
+> Database: aiven (Postgress)
+> File Storage: Firebase
 
 ## General Notice
 This Repository contains Django Code 🌐 for Arya Public School Website 🏫 hosted on Heroku ✈️ @ http://aryapublicschool.herokuapp.com/ => http://www.aryapublicschool.net/ . All secrets 🕵 and private keys 🔑 are hidden. But if you find any security flaws ☠ or Private information 😵 that shouldn't have been public please contact me @ deekshantwadhwa2000@gmail.com and please do not exploit it 🙏🙏. 

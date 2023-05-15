@@ -2,7 +2,9 @@
 
 ###### Developed and Designed by Deekshant Wadhwa and Nitesh Kumar Singh
 > The website is hosted on heroku. 
+
 > Database: aiven (Postgress)
+
 > File Storage: Firebase
 
 ## General Notice

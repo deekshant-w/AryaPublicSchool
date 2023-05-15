@@ -96,14 +96,45 @@ DATABASES = {
     }
 }
 
-MAX_CONN_AGE = 600
-if "DATABASE_URL" in os.environ:
-    # Configure Django for DATABASE_URL environment variable.
-    DATABASES["default"] = dj_database_url.config(
-        conn_max_age=MAX_CONN_AGE, ssl_require=True)
-    # Enable test database if found in CI environment.
-    if "CI" in os.environ:
-        DATABASES["default"]["TEST"] = DATABASES["default"]
+if 'AIVEN' in os.environ:
+    # Aiven PostgreSQL
+    print("Aiven online!")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv("AIVEN_NAME"),
+            'USER': os.getenv("AIVEN_USER"),
+            'PASSWORD': os.getenv("AIVEN_PASSWORD"),
+            'HOST': os.getenv("AIVEN_HOST"),
+            'PORT': os.getenv("AIVEN_PORT"),
+        }
+    }
+else:
+    # Load from local file
+    aivevn_file = "../aiven.json"
+    print("Loading Aiven config from file: " + aivevn_file)
+    aiven_config = json.loads(open(aivevn_file).read())
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': aiven_config["AIVEN_NAME"],
+            'USER': aiven_config["AIVEN_USER"],
+            'PASSWORD': aiven_config["AIVEN_PASSWORD"],
+            'HOST': aiven_config["AIVEN_HOST"],
+            'PORT': aiven_config["AIVEN_PORT"],
+        }
+    }
+
+
+# Heroku Postgress
+# MAX_CONN_AGE = 600
+# if "DATABASE_URL" in os.environ:
+#     # Configure Django for DATABASE_URL environment variable.
+#     DATABASES["default"] = dj_database_url.config(
+#         conn_max_age=MAX_CONN_AGE, ssl_require=True)
+#     # Enable test database if found in CI environment.
+#     if "CI" in os.environ:
+#         DATABASES["default"]["TEST"] = DATABASES["default"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

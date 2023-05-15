@@ -52,3 +52,4 @@ env.bak/
 venv.bak/
 pythonenv*
 static_root/*
+main/migrations/*

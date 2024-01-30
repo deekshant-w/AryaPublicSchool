@@ -8,7 +8,9 @@
 > File Storage: Firebase
 
 ## General Notice
-This Repository contains Django Code 🌐 for Arya Public School Website 🏫 hosted on Heroku ✈️ @ http://aryapublicschool.herokuapp.com/ => http://www.aryapublicschool.net/ . All secrets 🕵 and private keys 🔑 are hidden. But if you find any security flaws ☠ or Private information 😵 that shouldn't have been public please contact me @ deekshantwadhwa2000@gmail.com and please do not exploit it 🙏🙏. 
+🌐 This Repository contains Django Code for Arya Public School Website hosted on Heroku at http://aryapublicschool.herokuapp.com/ => http://www.aryapublicschool.net/ . 
+
+🐞 Found a bug or vulnerability? Please report it to one of our project maintainers. As a volunteer-driven project, updates may not be frequent. Your help is invaluable in keeping this project secure and robust. Thank you! 🚀
 
 ## School Information
 🏫 Arya Public School, Malviya Nagar, Maharishi Dayanand Marg, New Delhi - 110017, Delhi, India
@@ -18,10 +20,5 @@ This Repository contains Django Code 🌐 for Arya Public School Website 🏫 ho
 📧 arya.public@yahoo.com
 
 📞 011-41617157
-
-## A Side Note
-This repository uses Django along with firebase for storage, although there is no dedicated library for that, yet we have found a workaround that uses django-storages and googles cloud API. So feel free to use it in your code as well.
-
-------------
 
 ###### "कृण्वन्तो विश्वमार्यम्" Make the world noble!

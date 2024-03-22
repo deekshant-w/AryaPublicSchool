@@ -95,14 +95,13 @@ def cropper(original_image):
 	img_io = BytesIO()
 	name = original_image.name
 	original_image = Image.open(original_image).convert('RGB')
-	print(dir(original_image))
 	w, h = original_image.size
 	if h<w:
 		new_w = int((16/9)*h)
 		cropped_img = original_image.crop((int((w-new_w)/2), 0, w-int((w-new_w)/2), h))
 	elif w<h:
 		new_h = int((9/16)*w)
-		cropped_img = original_image.crop(0,int((h-new_h)/2), w,h-int((h-new_h)/2))
+		cropped_img = original_image.crop((0,int((h-new_h)/2), w,h-int((h-new_h)/2)))
 	else:
 		cropped_img = original_image
 	cropped_img.save(img_io, format='JPEG', quality=100)

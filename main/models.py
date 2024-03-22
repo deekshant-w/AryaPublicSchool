@@ -94,7 +94,7 @@ class AdminControls(models.Model):
 def cropper(original_image):
 	img_io = BytesIO()
 	name = original_image.name
-	original_image = Image.open(original_image)
+	original_image = Image.open(original_image).convert('RGB')
 	print(dir(original_image))
 	w, h = original_image.size
 	if h<w:

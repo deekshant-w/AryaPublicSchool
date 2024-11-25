@@ -7,7 +7,7 @@ dj-database-url==2.0.0
 Django==4.2.16
 django-storages==1.13.2
 django-tinymce==4.1.0
-google-api-core==2.21.0
+google-api-core==2.23.0
 google-auth==2.35.0
 google-cloud-core==2.3.2
 google-cloud-storage==2.18.2

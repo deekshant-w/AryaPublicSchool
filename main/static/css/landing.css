@@ -196,10 +196,10 @@
   }
 
   .modalDataText{
-    padding-left: 5%;
+    /* padding-left: 5%;
     text-align: justify;
     font-size: 1rem;
-    color: black;
+    color: black; */
   }
 
   .modalTextPersonName{
@@ -219,7 +219,7 @@
     }
   }
   .lead {
-    font-size: 2.8vmin;
+    /* font-size: 2.8vmin; */
   }
 
 

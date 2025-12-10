@@ -6,7 +6,8 @@ import secrets
 import time
 from PIL import Image
 from django.core.files.base import ContentFile
-from io import StringIO,BytesIO
+from io import StringIO, BytesIO
+from pathlib import Path
 
 def renameFiles(name):
 	return secrets.token_urlsafe(5) + str(int(time.time()*1000)%100000) + name
@@ -93,7 +94,8 @@ class AdminControls(models.Model):
 
 def cropper(original_image):
 	img_io = BytesIO()
-	name = original_image.name
+	location = Path(original_image.path)
+	name = location.stem
 	original_image = Image.open(original_image).convert('RGB')
 	w, h = original_image.size
 	if h<w:
@@ -110,7 +112,7 @@ def cropper(original_image):
 
 class CarouselImages(models.Model):
 	name =	models.CharField(max_length=1024)
-	image = models.ImageField()
+	image = models.ImageField(upload_to="uploads/")
 
 	def __str__(self):
 		return self.name

@@ -192,18 +192,41 @@ class HerokuDiscoverRunner(DiscoverRunner):
 # PRODUCTION SETTINGS
 if(os.getenv("FIREBASE_JSON")):
     GS_CREDENTIALS = service_account.Credentials.from_service_account_info(json.loads(base64.b64decode(os.environ.get("FIREBASE_JSON")).decode()))
+    print("FIREBASE JSON LOADED FROM ENV VARIABLE")
 
 # DEVELOPMENT SETTINGS
 # place the file one directory up of manage.py
 else:
     try:
-        GS_CREDENTIALS = service_account.Credentials.from_service_account_file(r"..\arya-public-school-web-firebase-adminsdk-zcad0-a095058cfe.json")
+        GS_CREDENTIALS = service_account.Credentials.from_service_account_file(r"..\arya-public-school-web-firebase-adminsdk-zcad0-75bad95d22.json")
+        print("FIREBASE JSON LOADED FROM FILE")
     except Exception as e:
+        GS_CREDENTIALS = None
         print("ERR-FIREBASE-JSON",e)
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'arya-public-school-web.appspot.com'
-GS_DEFAULT_ACL = "publicRead"
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+        "OPTIONS": {
+            "bucket_name": GS_BUCKET_NAME,
+            "default_acl": "publicRead",
+            "credentials": GS_CREDENTIALS,
+        },
+    },
+    "staticfiles": {
+        # Keep static files local (standard setup)
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        # OR if you want static files on Firebase too:
+        # "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+        # "OPTIONS": {
+        #     "bucket_name": GS_BUCKET_NAME,
+        #     "location": "static",
+        # },
+    },
+}
+MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
 
 # tinyMCE
 DJANGO_SETTINGS_MODULE='testtinymce.settings'

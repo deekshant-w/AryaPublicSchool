@@ -112,7 +112,7 @@ def cropper(original_image):
 
 class CarouselImages(models.Model):
 	name =	models.CharField(max_length=1024)
-	image = models.ImageField(upload_to="uploads/")
+	image = models.ImageField()
 
 	def __str__(self):
 		return self.name

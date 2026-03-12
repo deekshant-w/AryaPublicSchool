@@ -124,3 +124,9 @@ class AdmissionPage(models.Model):
 	data = tinymce_models.HTMLField()
 	def __str__(self):
 		return "Admission Page Data"
+
+
+class Alive(models.Model):
+	date = models.DateTimeField(auto_now=True)
+	def __str__(self):
+		return "Alive at " + self.date.strftime("%Y-%m-%d %H:%M:%S")

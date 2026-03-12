@@ -94,3 +94,19 @@ def serializePages(data):
 def pagesEndPoint(request):
 	data = M.newPage.objects.all().order_by('?')
 	return JsonResponse(serializePages(data),safe=False)
+
+def alive(request):
+	# Create new alive element
+	alive = M.Alive()
+	alive.save()
+
+	# Read all alive elements
+	aliveElements = M.Alive.objects.all()
+	aliveElements = list(aliveElements.values())
+
+	# Delete all alive elements
+	M.Alive.objects.all().delete()
+
+	html = f"{len(aliveElements)} - {json.dumps(aliveElements, default=str)}"
+
+	return HttpResponse(html)

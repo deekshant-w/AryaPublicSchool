@@ -9,5 +9,6 @@ urlpatterns = [
     path('news',mv.news),
     path('admissions',mv.admissionPage),
     path('activities',mv.activitiesPage),
-    path('pagesEndPoint',mv.pagesEndPoint)
+    path('pagesEndPoint',mv.pagesEndPoint),
+    path('alive',mv.alive)
 ]

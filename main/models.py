@@ -1,3 +1,5 @@
+import zoneinfo
+
 from django.db import models
 from django.utils import timezone
 from tinymce import models as tinymce_models
@@ -130,3 +132,10 @@ class Alive(models.Model):
 	date = models.DateTimeField(auto_now=True)
 	def __str__(self):
 		return "Alive at " + self.date.strftime("%Y-%m-%d %H:%M:%S")
+	
+	def save(self, *args, **kwargs):
+		MODEL_TZ = zoneinfo.ZoneInfo("America/Toronto")
+		if not self.date:
+			self.date = timezone.now()
+		self.date = self.date.astimezone(MODEL_TZ)
+		super().save(*args, **kwargs)

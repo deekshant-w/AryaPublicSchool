@@ -105,7 +105,7 @@ def alive(request):
 	aliveElements = list(aliveElements.values())
 
 	# Delete all alive elements
-	M.Alive.objects.all().delete()
+	# M.Alive.objects.all().delete()
 
 	html = f"{len(aliveElements)} - {json.dumps(aliveElements, default=str)}"
 

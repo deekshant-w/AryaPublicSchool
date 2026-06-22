@@ -3,7 +3,7 @@ import os
 from google.oauth2 import service_account
 import json
 import base64
-import dj_database_url
+import dj_database_url  # NOTE: possibly unwanted — only used by the commented-out Heroku Postgres block below
 from django.test.runner import DiscoverRunner
 from pathlib import Path
 

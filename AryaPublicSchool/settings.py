@@ -6,19 +6,8 @@ import base64
 import dj_database_url  # NOTE: possibly unwanted — only used by the commented-out Heroku Postgres block below
 from django.test.runner import DiscoverRunner
 from pathlib import Path
-
-# import sentry_sdk
-# from sentry_sdk.integrations.django import DjangoIntegration
-#
-# sentry_sdk.init(
-#     dsn="https://9c2f70e7fa1248b0ab2118bae39b62cc@o540354.ingest.sentry.io/5658550",
-#     integrations=[DjangoIntegration()],
-#     traces_sample_rate=1.0,
-#
-#     # If you wish to associate users to errors (assuming you are using
-#     # django.contrib.auth) you may enable sending PII data.
-#     send_default_pii=True
-# )
+from aiven.client import AivenClient
+import time
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -109,6 +98,11 @@ if 'AIVEN' in os.environ:
             'PORT': os.getenv("AIVEN_PORT"),
         }
     }
+    AIVEN_CLI = {
+        "PROJECT": os.getenv("AIVEN_PROJECT"),
+        "SERVICE": os.getenv("AIVEN_SERVICE"),
+        "TOKEN": os.getenv("AIVEN_CLI_TOKEN"),
+    }
 else:
     # Load from local file
     aivevn_file = "../aiven.json"
@@ -124,7 +118,65 @@ else:
             'PORT': aiven_config["AIVEN_PORT"],
         }
     }
+    AIVEN_CLI = {
+        "PROJECT": aiven_config["AIVEN_PROJECT"],
+        "SERVICE": aiven_config["AIVEN_SERVICE"],
+        "TOKEN": aiven_config["AIVEN_CLI_TOKEN"],
+    }
 
+# Turn ON Aiven
+def turnOnAiven(restart=False):
+    TRIES = 3
+    POOL_TIME = 60
+    WAIT_TIME = 5
+
+    for _ in range(TRIES):
+        print("Attempting to turn on Aiven... Attempt", _+1)
+        try:
+            client = AivenClient("https://api.aiven.io")
+            client.set_auth_token(AIVEN_CLI["TOKEN"])
+            if client.get_service(project=AIVEN_CLI["PROJECT"], service=AIVEN_CLI["SERVICE"])["state"].upper() == "RUNNING" and not restart:
+                print("Aiven is already ON!")
+                return
+            client.update_service(project=AIVEN_CLI["PROJECT"], service=AIVEN_CLI["SERVICE"], powered=True)
+        except Exception as e:
+            print("Error turning on Aiven:", e)
+            raise e
+        
+        if restart:
+            client.update_service(project=AIVEN_CLI["PROJECT"], service=AIVEN_CLI["SERVICE"], powered=False)
+            restart_wait_start_time = time.time()
+            while time.time() - restart_wait_start_time < POOL_TIME:
+                try:
+                    state = client.get_service(project=AIVEN_CLI["PROJECT"], service=AIVEN_CLI["SERVICE"])
+                    if state["state"].upper() == "POWEROFF":
+                        print("Aiven is OFF! Restarting...")
+                        break
+                    else:
+                        print("Waiting for Aiven to turn off... Current state:", state["state"])
+                        time.sleep(1)
+                except Exception as e:
+                    print("Error checking Aiven state:", e)
+                    time.sleep(WAIT_TIME)
+            time.sleep(WAIT_TIME)  # Wait a bit before trying to turn it on again
+        
+        start_time = time.time()
+        while time.time() - start_time < POOL_TIME:
+            try:
+                state = client.get_service(project=AIVEN_CLI["PROJECT"], service=AIVEN_CLI["SERVICE"])
+                if state["state"].upper() == "RUNNING":
+                    print("Aiven is ON!")
+                    time.sleep(WAIT_TIME)  # Wait a bit to ensure it's fully up before returning
+                    return
+                else:
+                    print("Waiting for Aiven to turn on... Current state:", state["state"])
+                    time.sleep(WAIT_TIME)
+            except Exception as e:
+                print("Error checking Aiven state:", e)
+                time.sleep(WAIT_TIME)
+    raise Exception("Failed to load the secret sauce. Please try again in a few minutes 😿🙏🏻")
+turnOnAiven()
+                
 
 # Heroku Postgress
 # MAX_CONN_AGE = 600

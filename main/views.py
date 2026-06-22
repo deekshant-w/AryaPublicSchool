@@ -6,6 +6,7 @@ from django.views.decorators.http import require_http_methods
 import json
 import datetime
 from django.http import HttpResponseNotFound, HttpResponse
+from AryaPublicSchool import settings
 
 def landing(request):
 	data = {}
@@ -40,7 +41,7 @@ def landing(request):
 	except:
 		data['lastNews'] = False
 
-	data['carouselImages'] = M.CarouselImages.objects.all()
+	data['carouselImages'] = M.CarouselImages.objects.order_by('-id')
 
 	return render(request, 'landing.html', {'data':data,'admissionsOn':admissionsOn})
 
@@ -96,6 +97,11 @@ def pagesEndPoint(request):
 	return JsonResponse(serializePages(data),safe=False)
 
 def alive(request):
+	"""
+	1. Assume Aiven free tier is trustworthy (Failed)
+	2. Use Aiven CLI to turn on the db everyday.
+	"""
+	############### 1.
 	# Create new alive element
 	alive = M.Alive()
 	alive.save()
@@ -105,8 +111,12 @@ def alive(request):
 	aliveElements = list(aliveElements.values())
 
 	# Delete all alive elements
-	# M.Alive.objects.all().delete()
+	M.Alive.objects.all().delete()
 
 	html = f"{len(aliveElements)} - {json.dumps(aliveElements, default=str)}"
+
+	############### 2.
+	# get project, service, token from environment
+	settings.turnOnAiven(restart=False)
 
 	return HttpResponse(html)
